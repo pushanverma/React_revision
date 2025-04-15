@@ -28,6 +28,33 @@ console.table([accountId,accountEmail,accountCity,accountState]);
 
 
 
+// undefined , not defined and null,
+
+
+
+//1.undefined (when you declare the variable but does not intialise it with any value )
+let a;
+console.log(a);
+
+
+//2.null (is a type of value "actual value" intentionally put to tell the space is empty )
+let b=null;
+console.log(b);
+
+
+//3.not defined (using a variable which has never been declared , a type of Reference Error )
+// console.log(c);
+
+
+
+//Note - "Typeof"  , a way to investigate the dataType of variable 
+
+console.log(typeof b);  // type of null , is an object (it can be said as a bug in js )
+
+console.log(typeof a);  // type of undefined , is undefined
+
+
+
 
 
 
