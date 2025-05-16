@@ -49,9 +49,12 @@ let y = Boolean(x);
 
 //------------------------------------------------------------------------------
 
-let g=45;
-let h =String(g);
+let g = 45;
+let h = String(g);
 console.log(h);
 console.log(typeof h);
 
+//------------Operations------------
 
+//addition , subtraction , multiply , division , modulo , prefix , postfix (you know)
+console.log(2 ** 3); //power operator
