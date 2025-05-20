@@ -92,3 +92,27 @@ console.log(Object.values(user2), "....object values");
 //hasOwnProperty
 
 console.log(user2.hasOwnProperty("name"), "...hasOwnProperty");
+
+//destructing of objects
+
+let user3 = {
+  name: {
+    firstName: "pushan",
+    lastName: "verma",
+  },
+  id: 123,
+  gender: "Male",
+  schoolName: "BPIT",
+  course: "CSE",
+  bacth: "2018-2022",
+  location: "Delhi, India",
+};
+
+console.log(user3, "....user3");
+
+const {
+  name: { firstName: studentName },
+  gender: sex,
+} = user3;
+
+console.log(studentName, "<---studentName and gender---->", sex);
