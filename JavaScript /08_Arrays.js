@@ -74,9 +74,9 @@ let dc_heroes = ["batman", "superman", "flash"];
 // let all_heroes = marvel_heroes.concat(dc_heroes);
 // console.log(all_heroes, "...all heroes using concat method ");
 
-//spread operator( take glass and drop , it will shatter into pieces , this is what spread operator is )
-// let all_heroes_1 = [...marvel_heroes, ...dc_heroes];
-// console.log(all_heroes, "...all heroes using spread method ");
+// spread operator( take glass and drop , it will shatter into pieces , this is what spread operator is )
+let all_heroes_1 = [...marvel_heroes, ...dc_heroes];
+console.log(all_heroes, "...all heroes using spread method ");
 
 //flat method (used to reduce the complexity of array - basically array inside array
 
