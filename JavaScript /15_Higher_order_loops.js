@@ -23,7 +23,7 @@ function welcomeMessage() {
 greet("Pushan", welcomeMessage);
 //note: Herer we are passing function as a argument, thats why callback function
 
-//topic:------------ HIGHER ORDER LOOPS-------
+//topic:-----------HIGHER ORDER LOOPS-------
 
 //topic: for-of loop
 
@@ -88,17 +88,17 @@ let items = ["apple", "banana", "grapes"];
 
 //note: 1st method(making a simple function inside forEach)
 items.forEach(function (value) {
-  // console.log(value, "...value");
+  console.log(value, "...value");
 });
 
 //note: 2nd method(making a arrow function inside forEach)
 items.forEach((value) => {
-  // console.log(value, "....value2");
+  console.log(value, "....value2");
 });
 
 //note: 3rd method(making a function outside and invoking inside forEach)
 function printMe(item) {
-  // console.log(item, "...value3");
+  console.log(item, "...value3");
 }
 
 items.forEach(printMe);
@@ -106,7 +106,7 @@ items.forEach(printMe);
 //note: forEach has 3 arguments inside callback function (value, index, arr)
 
 items.forEach((value, index, arr) => {
-  // console.log(value, index, arr);
+  console.log(value, index, arr);
 });
 
 //note: forEach loop with Objects
@@ -131,5 +131,5 @@ const myCoding = [
 ];
 
 myCoding.forEach((value) => {
-  // console.log(value.languageName, " has extensio -> ", value.languageFileName);
+  console.log(value.languageName, " has extensio -> ", value.languageFileName);
 });
