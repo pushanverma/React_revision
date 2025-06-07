@@ -84,7 +84,7 @@ let ans2 = myNumber
     return item + 1;
   });
 
-// console.log(ans2, "...ans2");
+console.log(ans2, "...ans2");
 
 //In the above question Filter out those values which are greater than 40
 
@@ -99,112 +99,112 @@ let ans3 = myNumber
     return item > 40;
   });
 
-// console.log(ans3, "...ans3");
+console.log(ans3, "...ans3");
 
 //topic:  Reduce(reduce also expects a callback function , where we have to give intialvalue after braces and accumulator and currentvalue are changed on the basis of logic provided)
 
-let arr = [1, 2, 3];
+// let arr = [1, 2, 3];
 
-let intialValue = 0;
+// let intialValue = 0;
 
-//note: using normal function
+// //note: using normal function
 
-let answer1 = arr.reduce(function (accumulator, currentValue) {
-  console.log(`accumulator:${accumulator} and currentValue:${currentValue}`);
-  return accumulator + currentValue;
-}, intialValue);
+// let answer1 = arr.reduce(function (accumulator, currentValue) {
+//   console.log(`accumulator:${accumulator} and currentValue:${currentValue}`);
+//   return accumulator + currentValue;
+// }, intialValue);
 
-console.log(answer1, "...answer1");
+// console.log(answer1, "...answer1");
 
-//note: using arrow function
+// //note: using arrow function
 
-let answer2 = arr.reduce((accumulator, currentValue) => {
-  return accumulator + currentValue;
-}, intialValue);
+// let answer2 = arr.reduce((accumulator, currentValue) => {
+//   return accumulator + currentValue;
+// }, intialValue);
 
-console.log(answer2, "...answer2");
+// console.log(answer2, "...answer2");
 
 // topic: SHOPPING_CART LOGIC
 
-// all the items are mentioned here
+// // all the items are mentioned here
 
-let shopping_mall = [
-  {
-    id: 1,
-    item_name: "Shirt",
-    item_price: 600,
-  },
-  {
-    id: 2,
-    item_name: "Jeans",
-    item_price: 800,
-  },
-  {
-    id: 3,
-    item_name: "Shoes",
-    item_price: 1000,
-  },
-];
+// let shopping_mall = [
+//   {
+//     id: 1,
+//     item_name: "Shirt",
+//     item_price: 600,
+//   },
+//   {
+//     id: 2,
+//     item_name: "Jeans",
+//     item_price: 800,
+//   },
+//   {
+//     id: 3,
+//     item_name: "Shoes",
+//     item_price: 1000,
+//   },
+// ];
 
-console.log("Choose out of these :-");
+// console.log("Choose out of these :-");
 
-let user_choice = [];
+// let user_choice = [];
 
-// Load the readline module(module required to read inputs inside terminal in javascript)
-const readline = require("readline");
+// // Load the readline module(module required to read inputs inside terminal in javascript)
+// const readline = require("readline");
 
-// Create an interface for input and output
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+// // Create an interface for input and output
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout,
+// });
 
-//if user is "pushan" he will pay 100 more than any other user.
-let user = "pushan";
+// //if user is "pushan" he will pay 100 more than any other user.
+// let user = "pushan";
 
-let billInitialValue = 0;
+// let billInitialValue = 0;
 
-if (user === "pushan") {
-  billInitialValue = 100;
-}
+// if (user === "pushan") {
+//   billInitialValue = 100;
+// }
 
-//displaying the items present on shop
+// //displaying the items present on shop
 
-shopping_mall.map((article, index) => {
-  console.log(`${article.id} ${article.item_name} , Rs.${article.item_price}`);
-});
-console.log("-------------------------------");
+// shopping_mall.map((article, index) => {
+//   console.log(`${article.id} ${article.item_name} , Rs.${article.item_price}`);
+// });
+// console.log("-------------------------------");
 
-//asking questions
+// //asking questions
 
-rl.question("Do you want shirt ?(y/n)", (shirt) => {
-  if (shirt == "y") {
-    let addShirt = shopping_mall.find((item) => item.item_name === "Shirt");
-    console.log(addShirt, "...addShirt");
-    user_choice.push(addShirt.item_price);
-  }
+// rl.question("Do you want shirt ?(y/n)", (shirt) => {
+//   if (shirt == "y") {
+//     let addShirt = shopping_mall.find((item) => item.item_name === "Shirt");
+//     console.log(addShirt, "...addShirt");
+//     user_choice.push(addShirt.item_price);
+//   }
 
-  rl.question("Do you want jeans?(y/n)", (jeans) => {
-    if (jeans == "y") {
-      let addJeans = shopping_mall.find((item) => item.item_name === "Jeans");
-      console.log(addJeans, "...addJeans");
-      user_choice.push(addJeans.item_price);
-    }
+//   rl.question("Do you want jeans?(y/n)", (jeans) => {
+//     if (jeans == "y") {
+//       let addJeans = shopping_mall.find((item) => item.item_name === "Jeans");
+//       console.log(addJeans, "...addJeans");
+//       user_choice.push(addJeans.item_price);
+//     }
 
-    rl.question("Do you want shoes?(y/n)", (shoes) => {
-      if (shoes == "y") {
-        let addShoes = shopping_mall.find((item) => item.item_name === "Shoes");
-        console.log(addShoes, "...addShoes");
-        user_choice.push(addShoes.item_price);
-      }
+//     rl.question("Do you want shoes?(y/n)", (shoes) => {
+//       if (shoes == "y") {
+//         let addShoes = shopping_mall.find((item) => item.item_name === "Shoes");
+//         console.log(addShoes, "...addShoes");
+//         user_choice.push(addShoes.item_price);
+//       }
 
-      let totalBillAmount = user_choice.reduce((accumulator, currentValue) => {
-        return accumulator + currentValue;
-      }, billInitialValue);
+//       let totalBillAmount = user_choice.reduce((accumulator, currentValue) => {
+//         return accumulator + currentValue;
+//       }, billInitialValue);
 
-      console.log(totalBillAmount, "....totalBillAmount");
+//       console.log(totalBillAmount, "....totalBillAmount");
 
-      rl.close();
-    });
-  });
-});
+//       rl.close();
+//     });
+//   });
+// });
