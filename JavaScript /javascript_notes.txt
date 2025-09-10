@@ -1,0 +1,18 @@
+Variables 
+DataTypes 
+Conversion Operators
+Strings 
+Numbers and Maths in js 
+Dates 
+Arrays 
+Objects 
+Functions 
+Scopes
+Arrow Functions 
+Immediately Invoked Functions 
+JavaScript execution 
+Higher order loops 
+Higher order functions 
+Closures
+
+

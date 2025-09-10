@@ -15,7 +15,7 @@ let c = a + b;
 let studentName = new String("pushanverma");
 // console.log(studentName);
 
-//note:if you run the above code in browser then , String method saves as Object(Key-value pair) not as Array of character, this is very important
+//note:if you run the above code in browser then , String method saves as Object(Key-value pair) not as character array , they store in the form of sequence
 console.log(studentName[1]);
 
 //topic: methods in String(methods does not change the original value)
@@ -42,3 +42,6 @@ console.log(text1.trim(), ".....trim");
 //replace 
 const url = "https:github.com/pushan%20verma";
 console.log(url.replace("%20", "-"));
+
+
+
