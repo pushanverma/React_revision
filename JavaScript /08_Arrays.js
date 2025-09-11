@@ -51,31 +51,31 @@ let myArr = [1, 2, 3, 4, "pushan", true, ["a", "b", "c"]];
 // splice - it mutates original array (it can add , remove or replace values )
 //splice syntax - arr.splice(start,deleteCount, item1,item2,item3,......itemN)
 
-let arr1 = [11, 12, 13, 14, 15, 16, 17, 18];
+// let arr1 = [11, 12, 13, 14, 15, 16, 17, 18];
 
-console.log(arr1, "Original Array");
+// console.log(arr1, "Original Array");
 
-console.log(arr1.slice(1, 3), "....sliced array ");
-console.log(arr1, "...orignal array after slice operation ");
+// console.log(arr1.slice(1, 3), "....sliced array ");
+// console.log(arr1, "...orignal array after slice operation ");
 
-console.log("\n");
+// console.log("\n");
 
-let arr2 = [11, 12, 13, 14, 15, 16, 17, 18];
+// let arr2 = [11, 12, 13, 14, 15, 16, 17, 18];
 
-//splice() ,remove values 
-console.log(arr2.splice(1, 3), "....splice array"); // start from index 1 and delete 3 values 
-console.log(arr2, "...orignal array after splice-remove  operation "); 
-
-
-//splice() , add values 
-
-arr2.splice(2,0,100,99,34);  // start from index 2 , delete 0 and add 100,99 and 34 
-console.log(arr2, "...orignal array after splice-add operation "); 
+// //splice() ,remove values 
+// console.log(arr2.splice(1, 3), "....splice array"); // start from index 1 and delete 3 values 
+// console.log(arr2, "...orignal array after splice-remove  operation "); 
 
 
-//splice() , replace values
-arr2.splice(1,2,8,88,);   // start from index 1 , delete 2 items and replace it with 8 and 88(* you can add more values if you want , it is not strict that you can only add 2 values you can add as many values as you want )
-console.log(arr2, "...orignal array after splice-replce operation "); 
+// //splice() , add values 
+
+// arr2.splice(2,0,100,99,34);  // start from index 2 , delete 0 and add 100,99 and 34 
+// console.log(arr2, "...orignal array after splice-add operation "); 
+
+
+// //splice() , replace values
+// arr2.splice(1,2,8,88,);   // start from index 1 , delete 2 items and replace it with 8 and 88(* you can add more values if you want , it is not strict that you can only add 2 values you can add as many values as you want )
+// console.log(arr2, "...orignal array after splice-replce operation "); 
 
 
 

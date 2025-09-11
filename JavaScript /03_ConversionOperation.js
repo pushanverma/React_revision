@@ -1,4 +1,4 @@
-//topic: 1(COnverting to number )
+//topic: 1(Converting to number )
 
 let a = 23;
 // console.log(typeof a);
