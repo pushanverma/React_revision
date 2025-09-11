@@ -48,19 +48,37 @@ let myArr = [1, 2, 3, 4, "pushan", true, ["a", "b", "c"]];
 //slice and splice
 
 // slice - does not mutate original array
-// splice - it mutates original array
+// splice - it mutates original array (it can add , remove or replace values )
+//splice syntax - arr.splice(start,deleteCount, item1,item2,item3,......itemN)
 
-// let arr1 = [11, 12, 13, 14, 15, 16, 17, 18];
+let arr1 = [11, 12, 13, 14, 15, 16, 17, 18];
 
-// console.log(arr1, "Original Array");
+console.log(arr1, "Original Array");
 
-// console.log(arr1.slice(1, 3), "....sliced array ");
-// console.log(arr1, "...orignal array after slice operation ");
+console.log(arr1.slice(1, 3), "....sliced array ");
+console.log(arr1, "...orignal array after slice operation ");
 
-// console.log("\n");
+console.log("\n");
 
-// console.log(arr1.splice(1, 3), "....splice array");
-// console.log(arr1, "...orignal array after splice operation ");
+let arr2 = [11, 12, 13, 14, 15, 16, 17, 18];
+
+//splice() ,remove values 
+console.log(arr2.splice(1, 3), "....splice array"); // start from index 1 and delete 3 values 
+console.log(arr2, "...orignal array after splice-remove  operation "); 
+
+
+//splice() , add values 
+
+arr2.splice(2,0,100,99,34);  // start from index 2 , delete 0 and add 100,99 and 34 
+console.log(arr2, "...orignal array after splice-add operation "); 
+
+
+//splice() , replace values
+arr2.splice(1,2,8,88,);   // start from index 1 , delete 2 items and replace it with 8 and 88(* you can add more values if you want , it is not strict that you can only add 2 values you can add as many values as you want )
+console.log(arr2, "...orignal array after splice-replce operation "); 
+
+
+
 
 let marvel_heroes = ["ironman ", "thor", "captain"];
 let dc_heroes = ["batman", "superman", "flash"];
@@ -76,22 +94,22 @@ let dc_heroes = ["batman", "superman", "flash"];
 
 // spread operator( take glass and drop , it will shatter into pieces , this is what spread operator is )
 let all_heroes_1 = [...marvel_heroes, ...dc_heroes];
-console.log(all_heroes, "...all heroes using spread method ");
+// console.log(all_heroes_1, "...all heroes using spread method ");
 
 //flat method (used to reduce the complexity of array - basically array inside array
 
 let arr = [1, 2, 3, 4, [12, 13, [15, 16, 17], 19, 20, ["a", "b"]]];
-console.log(arr.flat(Infinity), "...flat array ");
+// console.log(arr.flat(Infinity), "...flat array ");
 
 // Array class methods
 
 //isArray method(returns true / false)
-console.log(Array.isArray("pushan"));
-console.log(Array.isArray(["pushan", "verma"]));
+// console.log(Array.isArray("pushan"));
+// console.log(Array.isArray(["pushan", "verma"]));
 
 //Array.from() - makes array out of string (only string values accepted) and returns array with index
 
-console.log(Array.from("pushan"));
+// console.log(Array.from("pushan"));
 
 //Array.of()- takes variables and returns array
 let score1 = 100;
@@ -99,7 +117,7 @@ let score2 = 100;
 let score3 = 300;
 let grade1 = "A";
 
-console.log(
-  Array.of(score1, score2, score3, grade1),
-  "...combining diffrent values to make array "
-);
+// console.log(
+//   Array.of(score1, score2, score3, grade1),
+//   "...combining diffrent values to make array "
+// );
