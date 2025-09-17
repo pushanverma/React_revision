@@ -13,6 +13,9 @@ Immediately Invoked Functions
 JavaScript execution 
 Higher order loops 
 Higher order functions 
+DOM
+Events 
+Async-await 
 Closures
 
 

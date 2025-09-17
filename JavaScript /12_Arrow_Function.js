@@ -1,4 +1,4 @@
-//topic : this keyword
+//topic : "this" keyword
 
 const user = {
   username: "pushanverma",
@@ -27,7 +27,7 @@ user.username = "pushan2599";
 //this inside function(this wil fetch you a global object unlike printing outside )
 
 
-
+//note:  normal function call 
 function chai1() {
   let username = "verma2599";
   console.log(this, ".... this inside chai1 ");
@@ -39,6 +39,8 @@ function chai1() {
 // chai1();
 //both variables and this shares diffrent memory spaces
 
+
+//note: storing function inside variable 
 const chai2 = function () {
   let username = "verma2599";
   console.log(this, "....this inside chai2");
@@ -47,6 +49,8 @@ const chai2 = function () {
 
 chai2();
 
+//note: Arrow functions 
+//topic: Arrow Functions 
 const chai3 = () => {
   let username = "verma2599pushan";
   console.log(this, "....this inside chai3");
