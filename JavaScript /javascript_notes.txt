@@ -16,6 +16,13 @@ Higher order functions
 DOM
 Events 
 Async-await 
+Promise
+Fetch in Js 
+Object Oriented Programming in js 
+ProtoType in Js 
+Call Apply Bind in js 
+Getter Setter , Stack Overflow , 
+Lexical Scoping 
 Closures
 
 
