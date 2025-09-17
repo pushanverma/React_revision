@@ -15,6 +15,7 @@ Higher order loops
 Higher order functions 
 DOM
 Events 
+----------
 Async-await 
 Promise
 Fetch in Js 
