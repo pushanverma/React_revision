@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOM Learning !!</title>
   </head>
-  <body style="background-color: black; color: white;">
+  <style></style>
+  <body style="background-color: #212121; color: #fff">
     <div>
-      <h1 id="title" class="heading">DOM Learning</h1>
+      <h1 id="title" class="heading" topic="DOM" >DOM Learning</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit
         rem ducimus repellendus v oluptatibus reiciendis error perspiciatis quo
@@ -15,5 +16,107 @@
         officiis unde nulla eius alias sequi tenetur!
       </p>
     </div>
+    <h2>Monday</h2>
+    <h2>Teusday</h2>
+    <h2>Wednesday</h2>
+    <h2>Thursday</h2>
+    <input type="password" aria-label="Enter password">
+
+    <h3>
+      Hello this is Pushan <span style="display: none">the coder</span> Verma.
+    </h3>
+
+    <ul>
+      <li>One</li>
+      <li>Two</li>
+      <li>Three</li>
+    </ul>
+
+
+    <ul>
+      <li class="list-item">Pushan</li>
+      <li class="list-item">Chandresh</li>
+      <li class="list-item">Piyush</li>
+      <li class="list-item">Sahil</li>
+    </ul>
   </body>
+
+  <script>
+    // const title = document.getElementById("title");
+    // console.log(title, "...title");
+    // console.log(title.innerHTML, "...innerHTML ");
+    // console.log(title.id, "....id of title");
+    // console.log(title.className, "...className of that id");
+    // console.log(title.getAttribute("class"), "...class Attribute");
+    // console.log(title.getAttribute("id"), "...id attribute");
+    // console.log(title.getAttribute("topic"), "...topic attribute");
+
+    //topic: setAttribute (if you set this attrbute , this will over-write )
+    // title.setAttribute("class", "test");
+
+    //inserting style in title
+    // title.style.color = "green";
+    // title.style.backgroundColor = "beige";
+    // title.style.borderRadius = "10px";
+    // title.style.padding = "5px";
+
+    //understanding innerText , innerHTML , innerContent
+    // let name = document.querySelector("h3");
+    // console.log(name, "....name in html ");
+    // console.log(name.innerText, "....innerText if Name "); // innerText represents what user is currently seeing at DOM
+    // console.log(name.textContent, "....textContent of Name "); // textContent represents what user can't see that means the content that is hided can also be seen
+    // console.log(name.innerHTML, "....innerHTML of Name "); // this gives us html present inside the h3 tag 
+
+
+    let titleName =document.getElementsByClassName('heading');
+    // console.log(titleName,".....titleName ");
+
+
+    // "querySelector" and "querySelectorAll"
+    
+    console.log(document.querySelector('#title'));   // querrying id 
+    console.log(document.querySelector('.heading'));  //querring class
+
+    let weekDay = document.querySelector('h2');  // querring tag 
+    console.log(weekDay,"....weekDays");
+
+    let weekDays = document.querySelectorAll('h2');  // querrySelectorAll
+    console.log(weekDays,"....days");
+
+
+    //getting input 
+    let input= document.querySelector('input[type="password"]');
+    console.log(input,"...input ");
+
+   //Change the color of 1st li tag 
+   const unordered_list_item = document.querySelector('ul');
+   console.log(unordered_list_item,"...ul ");
+   const ordered_list_items=unordered_list_item.querySelectorAll('li');
+   console.log(ordered_list_items,"....ordered_list_items");
+
+   const first_list_item = ordered_list_items[0];
+   console.log(first_list_item,"...first_list_item");
+   first_list_item.style.color="orange";
+   first_list_item.innerHTML="I am first";
+
+
+
+   const all_items = unordered_list_item.querySelectorAll('li');
+   console.log(all_items,"...all_Items");
+
+   all_items.forEach(function(item){
+    item.style.color="red";
+   })
+
+
+   //by Class Name 
+
+   
+
+
+   
+
+  
+
+  </script>
 </html>

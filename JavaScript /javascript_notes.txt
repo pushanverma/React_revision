@@ -16,13 +16,14 @@ Higher order functions
 DOM
 Events 
 ----------
-Async-await 
+Asynchronous JavaScript meaning and why Async Js is needed ?
+setTimeout, clearTimeOut and setInterval and clearInterval 
 Promise
 Fetch in Js 
 Object Oriented Programming in js 
 ProtoType in Js 
 Call Apply Bind in js 
-Getter Setter , Stack Overflow , 
+Getter Setter , Stack Overflow 
 Lexical Scoping 
 Closures
 
