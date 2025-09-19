@@ -111,7 +111,37 @@
 
    //by Class Name 
 
+   let list = document.getElementsByClassName('list-item');
+   console.log(list,"...list");
+
+
+   // this is a HTMLCollection (technically it can't perform any aray function )
+  //  list.forEach(function(li){
+  //   console.log(li,"...item");
+  //  })
+
+   // How to loop through HTMLCollection - ans is by Converting it to Array using (Array.from() method)
+
+   let convertedList =Array.from(list);
+
+   console.log(convertedList,"...convertedList");
+
+   convertedList.map(function(item){
+    item.style.color="green";
+   })
+
+   convertedList.forEach(function(item){
+    item.style.padding="5px";
+   })
+
+  
+
    
+
+
+
+
+
 
 
    
