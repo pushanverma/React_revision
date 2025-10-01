@@ -110,9 +110,9 @@
 
 
    //by Class Name 
-
+   
    let list = document.getElementsByClassName('list-item');
-   console.log(list,"...list");
+   console.log(list,"...list");   // HTMLCOllection , it does not have any function related to array 
 
 
    // this is a HTMLCollection (technically it can't perform any aray function )
@@ -122,14 +122,20 @@
 
    // How to loop through HTMLCollection - ans is by Converting it to Array using (Array.from() method)
 
-   let convertedList =Array.from(list);
+   // converting HTMLCollection it to array 
+   let convertedList =Array.from(list);   
 
    console.log(convertedList,"...convertedList");
+
 
    convertedList.map(function(item){
     item.style.color="green";
    })
 
+   // changing the first index 
+   convertedList[0].style.color="yellow";  
+
+   // adding padding to each li
    convertedList.forEach(function(item){
     item.style.padding="5px";
    })
