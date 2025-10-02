@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project 1 | Color Changer</title>
+  </head>
+  <style>
+    .button {
+      padding: 20px;
+      margin: 20px;
+    }
+    #red {
+      background-color: red;
+    }
+    #green {
+      background-color: green;
+    }
+    #yellow {
+      background-color: yellow;
+    }
+    #orange {
+      background-color: orange;
+    }
+  </style>
+  <body>
+    <div>
+      <button class="button" id="red">Button1</button>
+      <button class="button" id="green">Button2</button>
+      <button class="button" id="yellow">Button3</button>
+      <button class="button" id="orange">Button4</button>
+    </div>
+  </body>
+
+  <script>
+    const buttons = document.querySelectorAll(".button");
+    console.log(buttons, "...buttons");
+
+    const body = document.querySelector("body");
+    console.log(body, "....body");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", (b) => {
+        console.log(b.target.id, "is clicked");
+        let color_clicked = b.target.id;
+        body.style.backgroundColor = color_clicked;
+      });
+    });
+  </script>
+</html>
