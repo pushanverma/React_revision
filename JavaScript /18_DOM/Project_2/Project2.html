@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project 2 | BMI Generator</title>
+  </head>
+  <style>
+    .height,
+    .weight {
+      font: 400;
+    }
+  </style>
+  <body style="background-color: #212121; color: #fff">
+    <h1 style="text-align: center">BMI CALCULATOR</h1>
+
+    <form action="" style="text-align: center">
+      <label for="height" class="height">Enter height in (m)</label>
+      <input
+        type="number"
+        placeholder="Enter height..."
+        id="height"
+        step=".01"
+      />
+      <br />
+      <label for="weight" class="weight">Enter weight in (kg)</label>
+      <input
+        type="number"
+        placeholder="Enter weight..."
+        id="weight"
+        step=".01"
+      />
+
+      <div style="text-align: center; margin: 10px; padding: 5px">
+        <button type="submit" id="submit">Calculate</button>
+        <button type="reset" value="reset" id="reset">Reset</button>
+      </div>
+
+      <h1 style="text-align: center" class="message">loading ...</h1>
+
+      <h3 style="text-align: center">BMI Metric</h3>
+
+      <div style="text-align: center">
+        <ol>
+          <li class="guide-list">Below 18.5 | Underweight</li>
+          <li class="guide-list">18.5 – 24.9 | Normal weight</li>
+          <li class="guide-list">25 – 29.9 | Overweight</li>
+          <li class="guide-list">30 and above | Obese</li>
+        </ol>
+      </div>
+    </form>
+  </body>
+  <script>
+    let form = document.querySelector("form");
+    console.log(form, "...form");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      let height = document.querySelector("#height").value;
+      console.log(height, "....height");
+
+      let weight = document.querySelector("#weight").value;
+      console.log(weight, "....weight");
+
+      //   console.log(height_value, weight_value, "...on submit ");
+
+      //checking if the height and weight are not empty
+      if (height == "" || weight == "") {
+        document.querySelector(".message").innerHTML =
+          "Please enter weight and height";
+        document.querySelector(".message").style.color = "red";
+      } else {
+        let bmi = Math.round (weight / (height * height));
+        document.querySelector(".message").innerHTML = bmi;
+        document.querySelector(".message").style.color = "blue";
+        console.log(bmi, "....bmi ");
+
+        if (bmi <= 18.5) {
+          document.querySelector("li:nth-child(1)").style.color = "green";
+        } else if (bmi > 18.5 && bmi <= 24.9) {
+          document.querySelector("li:nth-child(2)").style.color = "green";
+        } else if (bmi > 24.9 && bmi <= 29.9) {
+          document.querySelector("li:nth-child(3)").style.color = "green";
+        } else {
+          document.querySelector("li:nth-child(4)").style.color = "green";
+        }
+      }
+    });
+
+    form.addEventListener("reset", (e) => {
+      e.preventDefault();
+      console.log("reset is clicked!! ");
+
+      document.querySelector(".message").innerHTML = "loading...";
+      document.querySelector(".message").style.color = "#fff";
+      let all_li_list = document.querySelectorAll("li");
+      all_li_list.forEach((li) => {
+        li.style.color = "#fff";
+      });
+      document.querySelector("#weight").value="";
+      document.querySelector("#height").value="";
+
+
+    });
+  </script>
+</html>
