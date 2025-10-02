@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project 3 | Digital Clock</title>
+  </head>
+  <style>
+    .clock-container {
+      margin-left: 550px;
+      height: 200px;
+      width: 400px;
+      border: 1px solid black;
+    }
+  </style>
+  <body>
+    <div style="text-align: center">
+      <h1>Digital Clock</h1>
+
+      <div class="clock-container">
+        <h2>Time : <span id="time"> </span></h2>
+        <h2>Date : <span id="date"> </span></h2>
+        <h2>Week Day : <span id="weekday"> </span></h2>
+        <h2>Month : <span id="month"> </span></h2>
+      </div>
+    </div>
+  </body>
+  <script>
+        let weekDay = [
+          "Monday",
+          "Teusday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ];
+        let months = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+
+        let current_data = new Date();
+        console.log(current_data, "...current_date");
+    //------- date / month / year format------------
+        console.log(current_data.getDate(), "....date");
+        console.log(current_data.getMonth(), "...month ");
+        console.log(current_data.getFullYear(), "...year");
+
+    //--------week day ---------------------
+        console.log(current_data.getDay(), "....week day");
+
+    //------------time format -------------
+        console.log(current_data.getHours(), "...hour");
+        console.log(current_data.getMinutes(), "...minutes");
+        console.log(current_data.getSeconds(), "...seconds");
+
+        //time
+
+        console.log(current_data.toLocaleString(),"...locale string");
+        
+        setInterval(()=>{
+            // console.log(document.getElementById('time'),"...time id ");
+            let current_data = new Date();
+            document.getElementById('time').innerHTML=`${current_data.getHours()} : ${current_data.getMinutes()} : ${current_data.getSeconds()} `;
+        },1000);
+
+
+        //date
+        document.getElementById(
+          "date"
+        ).innerHTML = `${current_data.getDate()} / ${current_data.getMonth()+1} / ${current_data.getFullYear()}`;
+
+        // weekday
+        document.getElementById("weekday").innerHTML =
+          weekDay[current_data.getDay() - 1];
+
+        //month
+        document.getElementById("month").innerHTML =
+          months[current_data.getMonth()];
+  </script>
+</html>
