@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project 4 | Guess the number</title>
+  </head>
+  <style>
+    .start_button {
+      display: none;
+    }
+  </style>
+  <body>
+    <div style="text-align: center">
+      <h1>Guess the Number</h1>
+      <br />
+      <b>RULES</b>
+      <p>Try and guess a random number between 1 and 100.</p>
+      <p>You have 10 attempts to guess the right number.</p>
+      <p>----------------------------------------------------</p>
+      <form action="">
+        <input type="number" id="guessNumber" min="1" max="100" />
+        <br /><br />
+        <button type="submit">Submit your guess</button>
+        <br /><br />
+        <p>Previously Guessed Numbers : <span id="previousGuess"></span></p>
+        <p>Guess Remaining : <span id="guessRemaining"></span></p>
+        <br /><br /><br />
+        <h1 id="result"></h1>
+        <div class="startButton"></div>
+        <button class="start_button" id="start_button">start new game</button>
+      </form>
+    </div>
+  </body>
+  <script>
+    //1 . Generate a Random Number
+
+    let randomNumber = Math.round(Math.random() * 100);
+    console.log(randomNumber, "...randomNumber");
+
+    //2. Check whether user input is matching with random number
+
+    let guess_remaining = 10;
+
+    let guess_array = [];
+
+    let form = document.querySelector("form");
+
+    document.getElementById("previousGuess").innerHTML = guess_array;
+    document.getElementById("guessRemaining").innerHTML = guess_remaining;
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      let guessed_Number = document.getElementById("guessNumber").value;
+      document.getElementById("guessNumber").value = "";
+
+      if (guess_remaining > 1) {
+        if (guessed_Number == randomNumber && guessed_Number != "") {
+          console.log("guessNumber = randomNumber");
+          console.log("...endGame");
+          document.getElementById("start_button").style.display = "block";
+          document.getElementById("result").innerHTML =
+            "Congrtulations !! You guessed it right";
+          document.getElementById("result").style.color = "green";
+        } else if (guessed_Number !== randomNumber && guessed_Number != "") {
+          console.log("not =randomNumber");
+          guess_array.push(guessed_Number);
+          guess_remaining--;
+          document.getElementById("previousGuess").innerHTML = guess_array;
+          document.getElementById("guessRemaining").innerHTML = guess_remaining;
+          document.getElementById("result").innerHTML = "OOPS !! Retry ";
+          document.getElementById("result").style.color = "red";
+        }
+      } else {
+        console.log("end Game");
+        document.getElementById("start_button").style.display = "block";
+        document.getElementById("result").innerHTML =
+          "Better luck next time !! Start New game  ";
+        document.getElementById("result").style.color = "blue";
+      }
+    });
+
+    let startNewGame = document.getElementById("start_button");
+    startNewGame.addEventListener("click", (e) => {
+      e.preventDefault();
+      console.log("....Start new game clicked");
+
+      guess_remaining = 10;
+      guess_array = [];
+
+      document.getElementById("previousGuess").innerHTML = guess_array;
+      document.getElementById("guessRemaining").innerHTML = guess_remaining;
+      document.getElementById("start_button").style.display = "none";
+      document.getElementById("result").innerHTML = "";
+    });
+
+    //3.
+  </script>
+</html>
