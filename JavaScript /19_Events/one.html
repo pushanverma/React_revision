@@ -1,11 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EVENTS</title>
+  </head>
+  <style>
+    .superhero {
+      filter: brightness(0) invert(1);
+    }
+  </style>
+  <body style="background-color: #212121; color: #fff; text-align: center">
+    <h1>Events</h1>
+
+    <br /><br /><br />
+    <ul id="images">
+      <li class="superhero" id="ironMan">
+        <img src="./iron_man.png" alt="IronMan" />
+      </li>
+      <li class="superhero" id="captainAmerica">
+        <img src="./captain_america.png" alt="CaptainAmerica" />
+      </li>
+      <li class="superhero" id="thor">
+        <img src="./thor.png" alt="Thor" />
+      </li>
+    </ul>
+  </body>
+  <script>
+    console.log(document.getElementById("images"), "clicked");
+
+    document.getElementById("images").addEventListener(
+      "click",
+      (e) => {
+        e.preventDefault();
+        // console.log("...image is clicked");
+      },
+      false
+    );
+
+    document.getElementById("ironMan").addEventListener(
+      "click",
+      (e) => {
+        e.preventDefault();
+        // console.log("...iron man clicked");
+        // e.stopPropagation();
+      },
+      false
+    );
+
+    //On clicking the image , the image must be removed
+    document.querySelector("#images").addEventListener("click", (e) => {
+      e.preventDefault();
+      console.log(e.target.tagName, "....event");
+
+      if (e.target.tagName == "IMG") {
+        let toBeRemoved = e.target.parentNode;
+        console.log(toBeRemoved, "...toBeRemoved");
+        toBeRemoved.remove();
+      }
+    });
+  </script>
 </html>
