@@ -41,7 +41,7 @@ const c = 20;
 
 // const printName=()=>{
 //     console.log("Pushan Verma , inside const variable arrow function ");
-    }
+    // }
 
 
 
