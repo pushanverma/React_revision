@@ -1,3 +1,38 @@
+//Higher order Functions - HOF are those functions which receives some function in the parameter or return some function
+
+//1.--------------- Taking function as parameter-------------
+function sayHello() {
+  console.log("Hello!");
+}
+
+function greetUser(callback) {
+  console.log("Welcome User!");
+  callback(); // calling the function passed as argument
+}
+
+// passing function as argument
+greetUser(sayHello);
+
+
+//note: here sayhello is a "callback function".
+
+//2.------------Returns another function as result----------
+
+function greet(name) {
+  return function(message) {
+    console.log(`${message}, ${name}!`);
+  };
+}
+
+// calling the outer function
+const greetPushan = greet("Pushan");
+
+// now calling the returned function
+greetPushan("Good morning");
+
+//----------------------------------------------------------------------------------------------------
+
+//forEach Loop
 let languages = ["java", "js", "python", "rust"];
 
 let printLanguages = languages.forEach((item) => {
