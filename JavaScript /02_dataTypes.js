@@ -41,6 +41,49 @@ console.log(Boolean(null),"....null");  //false
 
 
 
+//================= Functions and Methods  ==========================
+console.log("================= Functions and Methods  ==========================");
+
+
+//Normal function 
+function add(a,b){
+    return a+b;
+}
+
+let result =add(3,4);
+console.log(result);
+
+
+
+// Methods 
+//myMath is a object , pi and all the variables declared inside object are called "properties" and functions inside object are called as "methods"
+
+let myMath ={};
+myMath.pi=3.14;
+myMath.add =function(a,b){
+    return a+b;
+}
+myMath.subtract=(a,b)=>{
+    if(a>b){
+        return a-b;
+    }else {
+        return b-a;
+    }
+}
+myMath.square=(value)=>{
+    return value*value;
+}
+
+console.log(myMath,"....custom made Math function  ");
+console.log(myMath.add(10,11),"...custom addFunction in myMath Object ");
+
+//add two methods subtract and square 
+  
+
+
+
+
+
 
 
 
