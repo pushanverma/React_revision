@@ -101,6 +101,15 @@ let hollywood = ["tomcruise", "robertdowneyJr", "chrisHemsworth"];
 let all_filmActor_spread = [...bollywood, ...hollywood];
 // console.log(all_filmActor_spread, "...all heroes using spread method ");
 
+//concat method 
+let arr1=[1,2,3];
+const arr2=[4,5,6];
+
+let arr3= arr1.concat(arr2);   // arr3=[1,2,3,4,5,6] concat will also provide you new array combing all the elements from both the arrays 
+console.log(arr3,"....arr1");
+
+
+
 //topic: Spred Operator with Objects
 
 //Combining objects(using Object.assign(), it provides the flexibility to mutate or not to mutate the array )
