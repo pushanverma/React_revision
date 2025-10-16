@@ -6,16 +6,16 @@ Numbers and Maths in js
 Dates 
 Arrays 
 Objects 
-Functions 
+Functions & Arrow Functions 
 Scopes
-Arrow Functions 
+Closures
 Immediately Invoked Functions 
-JavaScript execution 
-Higher order loops 
-Higher order functions 
-DOM
+JavaScript Code execution(callstack , global execution context , callback queue , promise queue , event loop) 
+Higher order loops (forEach , for-in , for-of )
+Higher order functions & Callbacks (map , filter and reduce )
+DOM(crud of html elements)
 Events 
-----------
+-----------------------------
 Asynchronous JavaScript meaning and why Async Js is needed ?
 setTimeout, clearTimeOut and setInterval and clearInterval 
 Promise
