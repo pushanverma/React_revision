@@ -78,7 +78,7 @@ let myArr = [1, 2, 3, 4, "pushan", true, ["a", "b", "c"]];
 // arr2.splice(1,2,8,88,);   // start from index 1 , delete 2 items and replace it with 8 and 88(* you can add more values if you want , it is not strict that you can only add 2 values you can add as many values as you want )
 // console.log(arr2, "...orignal array after splice-replce operation ");
 
-
+//-----------------------------SPREAD OPERATOR , REST OPERATOR AND DESTRUCTURING--------------------------
 
 let marvel_heroes = ["ironman ", "thor", "captain"];
 let dc_heroes = ["batman", "superman", "flash"];
@@ -101,12 +101,21 @@ let hollywood = ["tomcruise", "robertdowneyJr", "chrisHemsworth"];
 let all_filmActor_spread = [...bollywood, ...hollywood];
 // console.log(all_filmActor_spread, "...all heroes using spread method ");
 
+//We can also spread strings 
+let hero ="IRONMAN";
+
+all_filmActor_spread=[...all_filmActor_spread,...hero];
+console.log(all_filmActor_spread,"...all heroes including spread strings");
+
+
+
 //concat method 
 let arr1=[1,2,3];
 const arr2=[4,5,6];
 
 let arr3= arr1.concat(arr2);   // arr3=[1,2,3,4,5,6] concat will also provide you new array combing all the elements from both the arrays 
-console.log(arr3,"....arr1");
+console.log(arr3,"....arr3 through concat method");
+
 
 
 
