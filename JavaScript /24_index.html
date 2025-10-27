@@ -1,17 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timer Api</title>
-</head>
-<body>
-    
-    <h1>Timer Api </h1>
-    <br>
-    <h3>1. setTimeOut() and clearTimeOut() </h3>
-    <br>
-    <h3>2. setInterval() and clearInterval() </h3>
-</body>
-<script src="24_TimerApI.js"></script>
+  </head>
+
+  <style>
+    .project_1_container {
+      height: 200px;
+      width: 500px;
+      border: 1px solid black;
+      margin-bottom: 20px;
+    }
+  </style>
+  <body>
+    <h1>Timer Api</h1>
+    <br />
+    <h3>1. setTimeOut() and clearTimeOut()</h3>
+    <h2 class="topic_1">Learning setTimeOut</h2>
+    <button id="stop_timeOut">Stop TimeOut</button>
+    <br />
+    <hr />
+    <h3>2. setInterval() and clearInterval()</h3>
+    <h2 class="topic_2">Learning setInterval</h2>
+    <button id="stop_interval">Stop Interval</button>
+    <hr />
+
+    <div class="project_container">
+      <div class="project_1" style=" width: 50%; float: left;">
+        <h1>Project -1 (Background Color )</h1>
+        <div class="project_1_container"></div>
+        <button id="project_1_start">Start</button>
+        <button id="project_1_stop">Stop</button>
+      </div>
+      <div class="project_2">
+        <h1>Project -2 (Key press )</h1>
+        <div
+          class="project_2_container"
+          style="border-left: 2px solid black; height: 100px "
+        ></div>
+      </div>
+    </div>
+  </body>
+  <script src="24_TimerApI.js"></script>
 </html>
