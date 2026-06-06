@@ -1,0 +1,4 @@
+0. Inline , Internal and External CSS 
+1. Selectors (class , id , attribute and pseudo selectors)
+2. 
+

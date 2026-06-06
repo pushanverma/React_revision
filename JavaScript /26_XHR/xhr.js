@@ -26,3 +26,8 @@ button.addEventListener("click", (e) => {
   xhr.open("GET", "https://jsonplaceholder.typicode.com/todos/"); // open method just set everything in the packet ()
   xhr.send(); // send message sends the packet (or you can say request)
 });
+
+
+//note: By default the XHR request is async , if you want to change it to sycnhronous add a thir parameter . 
+// false - synchronous , true - synchronous , byDefault - synchronous
+//  xhr.open("GET", "https://jsonplaceholder.typicode.com/todos/", false); 
