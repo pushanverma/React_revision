@@ -30,6 +30,14 @@ which are somewhat difficult to debug.
 
 Installing TypeScript - 
 
-1. Locally (wrt to that Project )
+1. Locally (wrt to that Project , Ts will be installed with respect to that Project Folder and not outside )
 
-2. Globally (wrt to the environment)
+->npm install typescript --save-dev 
+
+2. Globally (wrt to the environment , Ts will be installed globally so wherever the .ts file is found it would run for it)
+
+->npm install -g typescript
+
+
+-> Installing Ts locally will make package.json and package-lock.json files with 
+ 
