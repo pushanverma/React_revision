@@ -1,0 +1,35 @@
+Source of Learning - "Code Step by Step" 
+
+Youtube Link - https://www.youtube.com/watch?v=EPhKOPbrBk0&list=PL8p2I9GklV44fWXJGEsBvR_ylJClgdVAN
+
+TypeScript - a Wrapper around JavaScript for Type Safety. (It's a superset over Js ). 
+
+Since JavaScript is a "dynamically typed language" , that means it decides the dataType of the variable at the "runtime" and not the "compile time".
+because of this , at runtime a lot errors can occur becuase till the runtime the compiler does not know the type.
+this is also because Js was made under a week and it was made loosely coupled and was made in such a way that   that any variable can hold any dataType without explicitly mentioning. 
+
+Ts helps in - 
+1. Static Typing (we have to mention the dataType explicitly before )
+2. Improved Code quality and Maintainability ( Since dataType are already mentioned , its easier to catch errors while compile time and not wait till runtime .)
+3. Advance Features (it brings some features along with wrapper). 
+
+
+TypeScript code is converted to JavaScript code , because the Browsers only understands the JavaScript and not TypeScript .
+
+Q: What is the need of creating a wrapper around Js and not update the js itself ? 
+
+Ans :  Updating the Js means affecting all the browsers which are already running Js. Updating means architectural 
+changes have to be made . Since for compatibility with all the old and new softwares a wrapper was introduced so 
+that old ones still runs and new ones can adapt to TypeScript.
+
+Q: If Ts converts it to Js in the end , what is the use of Ts ?
+
+Ans : Ts is used for the developer experience so that we can counter bugs while compile time and not Run time 
+which are somewhat difficult to debug. 
+
+
+Installing TypeScript - 
+
+1. Locally (wrt to that Project )
+
+2. Globally (wrt to the environment)
