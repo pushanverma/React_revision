@@ -1,38 +1,30 @@
-//note:declaration of Number data Type 
+//note:declaration of Number data Type
 
 var num1: number = 12;
 
 //note: Re- declare issue with Blocked Scoped Data Types (let and const )
-let num2: number =15;
-
+let num2: number = 15;
 
 //note: Adding two numbers(here we have not declared dataType to total but it becomes number , this is called Type Inference )
-var total = num1+num2;
-console.log(total,"...total");
+var total = num1 + num2;
+console.log(total, "...total");
 
+//note:Octal , Binary and Hexadecimal Numbers
 
-//note:Octal , Binary and Hexadecimal Numbers 
+var octalNumber: number = 0o100001;
+var hexaDecimalNumber: number = 0b00001;
+var binaryNumber: number = 0x00001;
 
-var octalNumber : number= 0o100001; 
-var hexaDecimalNumber : number= 0b00001;
-var binaryNumber : number =0x00001;
+console.log(octalNumber + 10, "..adding 10 to octalNumber");
 
-console.log(octalNumber+10,"..adding 10 to octalNumber");
+//note: Conversion of String to Number
+var no1 = 5;
+var no2 = "10";
+var convertedno2 = Number(no2);
+console.log(no1 + convertedno2, "...Converting String to Number");
 
+//note: Type Inference (If you have not specified the dataType first and then suddenly changing the dataType , it will give Error )
 
-//note: Conversion of String to Number 
-var no1=5;
-var no2="10";
-var convertedno2=Number(no2);
-console.log(no1+convertedno2,"...Converting String to Number");
-
-//note: Type Inference ()
-
-var data =12;
-data="Hello";
+var data: number | string = 12;
+data = "Hello Pushan Verma";
 console.log(data);
-
-
-
-
-
