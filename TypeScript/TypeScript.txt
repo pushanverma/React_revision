@@ -39,5 +39,9 @@ Installing TypeScript -
 ->npm install -g typescript
 
 
--> Installing Ts locally will make package.json and package-lock.json files with 
- 
+-> Installing Ts locally will make package.json and package-lock.json files with
+
+
+
+
+
