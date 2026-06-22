@@ -28,3 +28,5 @@ console.log(no1 + convertedno2, "...Converting String to Number");
 var data: number | string = 12;
 data = "Hello Pushan Verma";
 console.log(data);
+
+
