@@ -20,8 +20,6 @@ var convertedFlag = flag.toString();
 console.log(convertedFlag,"...converted Flag \n", typeof(convertedFlag),"...type of Converted Flag");
 
 
-
-
 var secondflag:boolean ;
 
 secondflag=flag;
