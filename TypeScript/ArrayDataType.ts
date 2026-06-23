@@ -28,8 +28,8 @@ console.log(student_flag, "......saidByStudents");
 student_name.push("Srikanth");
 console.log(student_name, "...student_name");
 
-//note: TUPLE
-// Since Arrays in Js can have any data-type so it can accumulate any value -> this is called TUPLE
+//note: 
+// Since Arrays in Js can have any data-type so it can accumulate any value -> this is called 
 var randomData = [1, "Pushan", true, null, undefined, "1abc"];
 
 console.log(randomData, "......randomData");
