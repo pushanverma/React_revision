@@ -19,15 +19,15 @@ data = [1, "Pushan Verma", "M", true]; // Making Data Array
 //note: 2. Unkown Data Type Declaration
 //(it is similar to Any data type , but the main difference is that unkown data Type has to be checked i.e Type has to be checked ).
 var data1;
-data1 = "Pushan Verma"; // making Data1 String 
-data1 = 12; // making Data1 Number 
-data1 = { username: "verma2599", email_id: "pushanverma.99@gmail.com" }; //// making Data1 Object 
+data1 = "Pushan Verma"; // making Data1 String
+data1 = 12; // making Data1 Number
+data1 = { username: "verma2599", email_id: "pushanverma.99@gmail.com" }; //// making Data1 Object
 data1 = [
     12,
     "pushanverma",
     true,
-    function helloWorld() {
-        console.log("HelloWorld");
+    function helloName(name) {
+        return console.log(`Hello ${name} inside function which is inside Array `);
     },
 ];
 // making Data1 Array with different Data Types (as we can store anything inside Array)
@@ -37,4 +37,10 @@ if (Array.isArray(data1)) {
     data1.push(24);
 }
 console.log(data1, "...data1 after checking and pushing value ->24 ");
+if (Array.isArray(data1)) {
+    //storing inside constant
+    let helloNameFunction = data1[3];
+    console.log(helloNameFunction, ".....helloNameFunction");
+    helloNameFunction("Pushan_verma");
+}
 //# sourceMappingURL=AnyUnknownDataType.js.map

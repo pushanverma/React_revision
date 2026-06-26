@@ -26,35 +26,33 @@ data = [1, "Pushan Verma", "M", true]; // Making Data Array
 
 var data1: unknown;
 
-data1 = "Pushan Verma"; // making Data1 String 
-data1 = 12;   // making Data1 Number 
-data1 = { username: "verma2599", email_id: "pushanverma.99@gmail.com" };  //// making Data1 Object 
+data1 = "Pushan Verma"; // making Data1 String
+data1 = 12; // making Data1 Number
+data1 = { username: "verma2599", email_id: "pushanverma.99@gmail.com" }; //// making Data1 Object
 data1 = [
   12,
   "pushanverma",
   true,
-  function helloWorld() {
-    console.log("HelloWorld");
+  function helloName(name: string) {
+    return console.log(`Hello ${name} inside function which is inside Array `);
   },
 ];
+
 // making Data1 Array with different Data Types (as we can store anything inside Array)
 
-
-
-console.log(data1,"...data1 before checking and pushing value ");
+console.log(data1, "...data1 before checking and pushing value ");
 
 // Now inorder to use Data1 , you have to check the "TypeOF"
 
-if(Array.isArray(data1)){
+if (Array.isArray(data1)) {
   data1.push(24);
 }
 
-console.log(data1,"...data1 after checking and pushing value ->24 ");
+console.log(data1, "...data1 after checking and pushing value ->24 ");
 
-
-
-
-
-
-
-
+if (Array.isArray(data1)) {
+  //storing inside constant
+  let helloNameFunction = data1[3];
+  console.log(helloNameFunction, ".....helloNameFunction");
+  helloNameFunction("Pushan_verma");
+}
