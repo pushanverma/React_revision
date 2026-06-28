@@ -62,10 +62,11 @@ function SimpleSix(): (name: String) => void {
 
 //note:  Function which is returning on basis of dataType that is being demanded ->
 // Number | String | Boolean | Array(pick any type ) | Object | Function
-// function SimpleSeven(
-//   data: number | string | boolean | Array | object | function
-// ): void | number | string | boolean | Array | object | function  {
-//   //1. Number
+function SimpleSeven(
+  data: number | string | boolean | [] | object | (()=> void )
+) : void | number | string | boolean | [] | object | (()=> void ) {
+
+  //1. Number
 //   if (typeof data == "number") {
 //     console.log("...Inside Number");
 //     return data;
@@ -108,13 +109,13 @@ function SimpleSix(): (name: String) => void {
 //     return data;
 //   }
 
-//   //6. Function
-//   if(typeof(data)==="function"){
-//     console.log("...Inside Function");
-//     return data;
-//   }
+  //6. Function
+  if(typeof(data)==="function"){
+    console.log("...Inside Function");
+    return data;
+  }
 
-// }
+}
 
 // //1.  Number
 // console.log(SimpleSeven(25), ".....SimpleSeven");
@@ -132,10 +133,6 @@ function SimpleSix(): (name: String) => void {
 // console.log(SimpleSeven({ fname: "pushan" }), "....SimpleSeven");
 
 //6. Function 
-// console.log(SimpleSeven(function(){
-//     console.log("Helloworld");
-// }));
-
-
-
-
+console.log(SimpleSeven(function(){
+    console.log("Helloworld");
+}));
