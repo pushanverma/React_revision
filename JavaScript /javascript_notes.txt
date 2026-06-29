@@ -1,3 +1,42 @@
+# Follow Notes (Topic Wise) :-
+1. Variables 
+2. Data Types 
+3. Conversion Operations 
+4. Comparison
+5. Strings and their inbuilt functions 
+6. Number and Maths(Basically Integer , Decimal , Float )
+7. Dates 
+8. Arrays 
+9. Objects 
+10. Functions 
+11. Scope(Global and Local Scope)
+12. Arrow Functions 
+13. IIFE(Immediately Invoked Functions Expressions)
+14. How is Js executed ?
+15. Higher Order Loops (Map , forEach , forIn , forOf)
+16. Higher  Order Functions (Map , Filter and Reduce )
+17. Deep Copy and Shallow Copy 
+** 18. DOM (CRUD of Elements )
+** 19. Events(CRUD of Events , Keyboard and Mouse Events,Event -Bubblng , Capturing , Simulation ,  Delegation , Propagation ,  ) 
+20. Understanding Code Line by Line(Notes in Notion Page)
+21. Hoising and Temporal Dead Zone 
+22. Closures 
+23. TimerApi (setTimeOut , setInterval , clearTimeOut , ClearTimeInterval )
+** 24. Local Storage
+** 25. XHR(XMLHttpRequest)
+26.  
+
+
+
+
+
+
+
+
+
+
+
+# Topics Covered in Js :- 
 Variables 
 DataTypes 
 Conversion Operators
@@ -14,8 +53,8 @@ JavaScript Code execution(callstack , global execution context , callback queue 
 Higher order loops (forEach , for-in , for-of )
 Higher order functions & Callbacks (map , filter and reduce )
 DOM(crud of html elements)
-Events 
------------------------------
+Events ()
+-------------------------------
 Asynchronous JavaScript meaning and why Async Js is needed ?
 setTimeout, clearTimeOut and setInterval and clearInterval 
 Promise
@@ -27,4 +66,9 @@ Getter Setter , Stack Overflow
 Lexical Scoping 
 Closures
 
+
+--------
+Left Over part(Can be done Later Also ) - 
+1. Events from Procoderr Js PLaylist (Videos - 62 to 70 )
+2.
 
