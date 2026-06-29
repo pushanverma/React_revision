@@ -2,7 +2,7 @@
 // "Enum" is applied where you have fixed set of possible values only .
 Object.defineProperty(exports, "__esModule", { value: true });
 // Real Application of Enums in Programming ->
-// Enum 
+// Enum (Enum stores the value , so Admin is stored at 0 , Similaryl Employee and Emanager at 1 and 2)
 var UserRole;
 (function (UserRole) {
     UserRole[UserRole["Admin"] = 0] = "Admin";

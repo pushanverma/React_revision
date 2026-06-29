@@ -2,7 +2,7 @@
 
 // Real Application of Enums in Programming ->
 
-// Enum 
+// Enum (Enum stores the value , so Admin is stored at 0 , Similaryl Employee and Emanager at 1 and 2)
 enum UserRole {
   Admin,
   Employee,
@@ -38,7 +38,7 @@ let randomManager: User = {
 };
 
 function showDashboard(randomUser: User): void {
-  if (randomUser.role === UserRole.Admin) {
+  if (randomUser.role === UserRole.Admin) { 
     console.log("....Admin Dashboard ");
   }
 
