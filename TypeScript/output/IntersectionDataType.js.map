@@ -1,0 +1,1 @@
+{"version":3,"file":"IntersectionDataType.js","sourceRoot":"","sources":["../IntersectionDataType.ts"],"names":[],"mappings":";AAAA,mFAAmF;;AAOnF,IAAI,WAAW,GAAgB,EAAE,YAAY,EAAE,cAAc,EAAE,CAAC;AAChE,IAAI,WAAW,GAAgB,EAAE,WAAW,EAAE,EAAE,EAAE,CAAC;AACnD,IAAI,WAAW,GAAgB;IAC7B,YAAY,EAAE,sBAAsB;IACpC,WAAW,EAAE,EAAE;CAChB,CAAC"}
