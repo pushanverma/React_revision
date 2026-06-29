@@ -36,7 +36,7 @@ var studentObject = {
 studentObject.university_Details(studentObject.student_name, studentObject);
 function VehicleDetails(myvehicle) {
     console.log(myvehicle, "....1");
-    console.log(myvehicle?.vehicle_brand);
+    // console.log(myvehicle?.vehicle_brand);
 }
 let myCar = {
     vehicle_brand: "Mercedez",

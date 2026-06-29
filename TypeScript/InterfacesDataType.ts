@@ -82,7 +82,7 @@ interface Car extends Vehicle {
 
 function VehicleDetails(myvehicle: object) {
   console.log(myvehicle, "....1");
-  console.log(myvehicle?.vehicle_brand);
+  // console.log(myvehicle?.vehicle_brand);
 }
 
 let myCar: Car = {
