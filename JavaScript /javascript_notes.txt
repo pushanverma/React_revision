@@ -1,3 +1,10 @@
+# Resources Followed :-
+Youtube Channels Playlist 
+1. Chai aur Code (Js playlist )
+2. Procoderr (Js Playlist )
+
+
+
 # Follow Notes (Topic Wise) :-
 1. Variables 
 2. Data Types 
@@ -24,14 +31,7 @@
 23. TimerApi (setTimeOut , setInterval , clearTimeOut , ClearTimeInterval )
 ** 24. Local Storage
 ** 25. XHR(XMLHttpRequest)
-26.  
-
-
-
-
-
-
-
+26. Synchronous and Asynchronous JavaScript 
 
 
 
@@ -52,23 +52,41 @@ Immediately Invoked Functions
 JavaScript Code execution(callstack , global execution context , callback queue , promise queue , event loop) 
 Higher order loops (forEach , for-in , for-of )
 Higher order functions & Callbacks (map , filter and reduce )
+Call , Apply and Bind 
 DOM(crud of html elements)
-Events ()
+setTimeout, clearTimeOut and setInterval and clearInterval 
+Events (crud and all the Properties )
 -------------------------------
 Asynchronous JavaScript meaning and why Async Js is needed ?
-setTimeout, clearTimeOut and setInterval and clearInterval 
+Callback Hell and How to avoid it 
 Promise
+Fixing Callback Hell with Promise 
 Fetch in Js 
-Object Oriented Programming in js 
-ProtoType in Js 
-Call Apply Bind in js 
-Getter Setter , Stack Overflow 
-Lexical Scoping 
-Closures
+Async Await 
+Exception Handling (try and catch in Js )
+Optional Chaining 
+Import and Export 
+--------------------------------
+OOPs in Js(4 Pillars of OOPs - Encapsulation , Abstraction , Inheritance , PolyMorphism ) 
+Classes and Objects 
+Constructors and new Keyword 
+Access Modifiers (Public , Private , Protected)
+Static Methods and Class Methods 
+Getters and Setters in Js 
+Prototypal Inheritance in Js 
+This Keyword 
 
 
---------
+
+
+---------------------------------
 Left Over part(Can be done Later Also ) - 
 1. Events from Procoderr Js PLaylist (Videos - 62 to 70 )
-2.
+2. 
 
+
+
+
+---------------------------------
+
+Slow API = https://procodrr.vercel.app/?sleep=5000
