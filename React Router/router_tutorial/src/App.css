@@ -17,6 +17,14 @@
   }
 }
 
+ 
+nav ul li .active {
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+
+
 .hero {
   position: relative;
 
@@ -182,3 +190,5 @@
     border-right-color: var(--border);
   }
 }
+
+
