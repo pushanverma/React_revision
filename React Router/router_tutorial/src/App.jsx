@@ -3,20 +3,31 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";
 import Navbar from "./components/Navbar";
+import OrderSummary from "./components/OrderSummary";
+import NoMatchRoute from "./components/NoMatchRoute";
+import Products from "./components/Products";
+import NewProduct from "./components/NewProduct";
+import FeaturedProduct from "./components/FeaturedProduct";
 
 function App() {
   return (
     <>
      <Navbar/>
 
-
-{/* Routes always comes at last after the components  */}
+{/* Routes always after the components  */}
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} /> 
+        <Route path="about" element={<About />} /> 
+        <Route path="order-summary" element={<OrderSummary/>} /> 
+        
+        <Route path="products" element={<Products/>} >
+             <Route path="new" element={<NewProduct/>}/>
+             <Route path="featured" element={<FeaturedProduct/>}/>
+         </Route>
+
+        <Route path="*" element={<NoMatchRoute/>}/>
       </Routes>
-    
     </>
   );
 }

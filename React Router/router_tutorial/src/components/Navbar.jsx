@@ -14,13 +14,18 @@ const Navbar = () => {
       <nav>
         <ul style={{ display: "flex", gap: "20px", listStyle: "none" }}>
           <li>
-            <NavLink style={navLinkStyles} to="/">
+            <NavLink to="/" style={navLinkStyles}>
               Home
             </NavLink>
           </li>
           <li>
             <NavLink to="/about" style={navLinkStyles}>
               About
+            </NavLink>
+          </li>
+           <li>
+            <NavLink to="/products" style={navLinkStyles}>
+              Products
             </NavLink>
           </li>
         </ul>
