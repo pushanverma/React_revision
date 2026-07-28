@@ -8,26 +8,38 @@ import NoMatchRoute from "./components/NoMatchRoute";
 import Products from "./components/Products";
 import NewProduct from "./components/NewProduct";
 import FeaturedProduct from "./components/FeaturedProduct";
+import Users from "./components/Users";
+import UserDetails from "./components/UserDetails";
+import Admin from "./components/Admin";
 
 function App() {
   return (
     <>
-     <Navbar/>
+      <Navbar />
 
-{/* Routes always after the components  */}
+      {/* Routes always after the components  */}
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} /> 
-        <Route path="order-summary" element={<OrderSummary/>} /> 
-        
-        <Route path="products" element={<Products/>} >
-             <Route path="new" element={<NewProduct/>}/>
-             <Route path="featured" element={<FeaturedProduct/>}/>
-         </Route>
 
-        <Route path="*" element={<NoMatchRoute/>}/>
+        <Route path="/" element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="order-summary" element={<OrderSummary />} />
+
+        <Route path="products" element={<Products />}>
+          <Route path="new" element={<NewProduct />} />
+          <Route path="featured" element={<FeaturedProduct />} />
+          <Route index element={<FeaturedProduct />} />
+        </Route>
+
+        <Route path="users" element={<Users />}>
+          <Route path=":userId" element={<UserDetails />} />
+          <Route path="admin" element={<Admin />} />
+        </Route>
+
+        <Route path="*" element={<NoMatchRoute />} />
+
       </Routes>
+
     </>
   );
 }
