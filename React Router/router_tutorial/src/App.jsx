@@ -10,6 +10,7 @@ import FeaturedProduct from "./components/FeaturedProduct";
 import Users from "./components/Users";
 import UserDetails from "./components/UserDetails";
 import Admin from "./components/Admin";
+import Profile from "./components/Profile";
 import React from "react";
 
 
@@ -46,6 +47,8 @@ function App() {
           <Route path=":userId" element={<UserDetails />} />
           <Route path="admin" element={<Admin />} />
         </Route>
+
+        <Route path="profile" element={<Profile/>}/>
 
         <Route path="*" element={<NoMatchRoute />} />
       </Routes>
