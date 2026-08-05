@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext , useState } from "react";
 import { employees } from "../constants/EmployeeList";
 
 // 1 . Creating the Context
@@ -9,7 +9,9 @@ export const EmployeeProvider = ({ children }) => {
   let [employeeRecords, setEmployeeRecords] = useState(employees);
 
   let addEmployee = (employee) => {
-    setEmployeeRecords((prev) => [...prev, employee]);
+    console.log("...adding Employee called in the Context ");
+    
+    // setEmployeeRecords((prev) => [...prev, employee]);
   };
 
   let deleteEmployee = (id) => {

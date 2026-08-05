@@ -1,12 +1,25 @@
-import React, { useState } from "react";
+import React, { useState , useContext} from "react";
 import EmployeeList from "./EmployeeList";
+import { EmployeeContext } from "../context/EmployeeContext";
+
+// let {employeeRecords,
+//         addEmployee,
+//         deleteEmployee,
+//         updateEmployee} = useContext(EmployeeContext);
 
 const Admin = () => {
+
+  let {employeeRecords, addEmployee} = useContext(EmployeeContext);
+
+
   let [buttonClicked, setButtonClicked] = useState();
 
-  let addEmployee = () => {
+  let addCurrentEmployee = () => {
+     addEmployee();
+     console.log(employeeRecords,"....hello");
     console.log("...add Employee clicked");
     setButtonClicked("add");
+   
   };
 
   let deleteEmployee = () => {
@@ -23,7 +36,7 @@ const Admin = () => {
     <div>
       <h1>Admin Page</h1>
 
-      <button onClick={() => addEmployee()}>Add Employee</button>
+      <button onClick={() => addCurrentEmployee()}>Add Employee</button>
       <button onClick={() => deleteEmployee()}>Delete Employee</button>
       <button onClick={() => updateEmployee()}>Update Employee</button>
       <br />
