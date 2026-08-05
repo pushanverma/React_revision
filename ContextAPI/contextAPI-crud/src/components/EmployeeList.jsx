@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { employees } from "../constants/EmployeeList";
 
 const EmployeeList = () => {
@@ -9,14 +9,16 @@ const EmployeeList = () => {
     <div>
       {employeelist.map((employee, index) => {
         return (
-          <>
-            <h3>{employee.first_name}</h3>
-            <p>{employee.last_name}</p>
-            <p >{employee.age}</p>
-            <p>{employee.university}</p>
-            <p >{employee.major}</p>
+          <Fragment key={index}>
+            <h3>Employee id - {employee.employeed_id}</h3>
+            <p>
+              Name - {employee.first_name} {employee.last_name}
+            </p>
+            <p> Age - {employee.age}</p>
+            <p> University - {employee.university}</p>
+            <p>Major - {employee.major}</p>
             <hr />
-          </>
+          </Fragment>
         );
       })}
     </div>
