@@ -45,13 +45,8 @@ const Admin = () => {
 
     // Cleaning the Fields Now
 
-    // List should be udpated now on employees page and Admin Page 
-
-
-    
+    // List should be udpated now on employees page and Admin Page
   };
-
-  
 
   return (
     <div>
