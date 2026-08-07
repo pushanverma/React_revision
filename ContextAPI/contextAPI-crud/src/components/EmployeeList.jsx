@@ -1,13 +1,12 @@
 import React, { Fragment, useState } from "react";
-import { employees } from "../constants/EmployeeList";
+// import { employees } from "../constants/EmployeeList";
 
-const EmployeeList = () => {
-  console.log(employees, ".....employeeList");
-  const [employeelist, setEmployeeList] = useState(employees);
+const EmployeeList = ({data}) => {
+  const [employeelist, setEmployeeList] = useState(data);
 
   return (
     <div>
-      {employeelist.map((employee, index) => {
+      {employeelist?.map((employee, index) => {
         return (
           <Fragment key={index}>
             <h3>Employee id - {employee.employeed_id}</h3>
