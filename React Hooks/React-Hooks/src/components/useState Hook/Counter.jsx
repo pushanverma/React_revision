@@ -7,8 +7,8 @@ const Counter = () => {
       <div>
         <h1>Count = {count}</h1>
         <div style={{ display: "flex", gap: "20px" }}>
-          <button onClick={() => setCount(count + 1)}>+</button>
-          <button onClick={() => count>0 ?  setCount(count - 1) : setCount(0)}>-</button>
+          <button onClick={() => setCount((prevCount)=>prevCount + 1)}>+</button>
+          <button onClick={() => count>0 ?  setCount((prevCount)=>prevCount - 1) : setCount(0)}>-</button>
           <button onClick={() => setCount(0)}> Reset</button>
         </div>
       </div>

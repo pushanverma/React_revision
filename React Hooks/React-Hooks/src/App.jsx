@@ -1,12 +1,18 @@
 import { useState } from 'react'
 import './App.css';
-import Counter from './components/Counter';
+import Counter from './components/useState Hook/Counter';
+import SideEffects from './components/useEffect Hook /SideEffects';
+import FirstandLastName from './components/useState Hook/FirstandLastName';
+import AddEmployee from './components/useState Hook/AddEmployee';
 
 function App() {
 
   return (
     <>
-     <Counter/>
+     {/* <Counter/> */}
+     {/* <SideEffects/> */}
+     {/* <FirstandLastName/> */}
+     <AddEmployee/>
     </>
   )
 }

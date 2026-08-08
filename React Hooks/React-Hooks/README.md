@@ -5,6 +5,12 @@ Why Hooks are used ? What are Hooks ? What is the need if we had Class Component
 
 
 useState
+
+1. Counter.jsx (Explaining the usage of useState Hook and also about the use of previous State )
+2. FirstandLastName (Objects with useState and also the main use of Previous here)
+3. AddEmployee (useState with Arrays)
+
+
 useEffect
 useReducer 
 useRef 
