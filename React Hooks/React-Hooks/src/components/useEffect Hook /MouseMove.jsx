@@ -21,6 +21,10 @@ const MouseMove = () => {
   useEffect(() => {
     console.log("...UseEffect is called");
     window.addEventListener("mousemove", logMousePositions);
+    return () => {
+      console.log("CleanUp / Unmounting  ");
+      window.removeEventListener("mousemove", logMousePositions);
+    };
   }, []);
 
   return (
