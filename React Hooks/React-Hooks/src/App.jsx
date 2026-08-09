@@ -16,7 +16,7 @@ function App() {
      {/* <FirstandLastName/> */}
      {/* <AddEmployee/> */}
      {/* <ChangeTitle/> */}
-     <MouseMove/>
+     {/* <MouseMove/> */}
     </>
   )
 }

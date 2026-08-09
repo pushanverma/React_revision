@@ -17,6 +17,7 @@ const MouseMove = () => {
   //   });
 
   // this useEffect runs only once, and since we have already told at first render that listen to the eventListener continously and it does.
+  // We dont want useEffect to run every time , this will consume browser's memory .
   useEffect(() => {
     console.log("...UseEffect is called");
     window.addEventListener("mousemove", logMousePositions);
