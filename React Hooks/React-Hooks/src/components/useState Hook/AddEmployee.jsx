@@ -15,13 +15,12 @@ const AddEmployee = () => {
     <>
       <input
         type="text"
-        placeholder="Add Employee..."
+        placeholder="Add Employee...."
         onChange={(e) => {
           setCurrentEmployee({ name: e.target.value });
         }}
       />
-
-      <button onClick={handleEmployee}>Submit </button>
+      <button onClick={handleEmployee}>Submit</button>
 
       {console.log(employeeList,"........employeelist")}
 
