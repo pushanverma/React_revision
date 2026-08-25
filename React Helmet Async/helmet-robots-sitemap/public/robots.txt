@@ -1,11 +1,10 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /dashboard
 
 
-
-
-
-
+Sitemap: https://react-revision-delta.vercel.app//sitemap.xml
 
 
 
