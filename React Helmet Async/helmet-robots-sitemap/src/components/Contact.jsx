@@ -1,11 +1,32 @@
-import React from 'react'
+import React from "react";
+import logo from "../assets/Gmail_Profile.jpg";
+import { Helmet } from "react-helmet-async";
+
 
 const Contact = () => {
   return (
-    <div>
-      Contact 
-    </div>
-  )
-}
+    <>
+      <Helmet>
+        <title> About Page </title>
+        <meta name="description" content="This is a About Page  " />
+        <meta name="Home " content=" Yes this is About Page  " />
+        <meta property="og:type" content="About Page" />
+        <meta property="og:url" content="/home" />
+        <meta property="og:title" content="PhyMacs About Page " />
+        <meta
+          property="og:description"
+          content="Hello this is description of the PhyMacs "
+        />
+        <meta property="og:site_name" content="@phymacs" />
+        <meta property="og:image" content={logo} />
+        <meta property="og:image:width" content="140" />
+        <meta property="og:image:height" content="140" />
+        <link rel="canonical" href="https://www.phymacstutoting.com" />
+      </Helmet>
 
-export default Contact
+      <div>Contact</div>
+    </>
+  );
+};
+
+export default Contact;
