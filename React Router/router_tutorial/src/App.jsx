@@ -39,7 +39,7 @@ function App() {
 
         <Route path="products" element={<Products />}>
           <Route path="new" element={<NewProduct />} />
-          <Route path="featured" element={<FeaturedProduct />} />
+          <Route path="featured" element={<FeaturedProduct />} /> 
           <Route index element={<FeaturedProduct />} />
         </Route>
 
