@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <sitemap>
+        <loc>https://react-revision-delta.vercel.app/sitemap-home.xml</loc>
+    </sitemap>
+    <sitemap>
+        <loc>https://react-revision-delta.vercel.app/sitemap-about.xml</loc>
+    </sitemap>
+
+    <sitemap>
+        <loc>https://react-revision-delta.vercel.app/sitemap-contact.xml</loc>
+    </sitemap>
+
+    <sitemap>
+        <loc>https://react-revision-delta.vercel.app/sitemap-detail.xml</loc>
+    </sitemap>
+
+    <sitemap>
+        <loc>https://react-revision-delta.vercel.app/sitemap-listing.xml</loc>
+    </sitemap>
+</sitemapindex>
