@@ -222,7 +222,7 @@ let emp_3 = new CreateNewEmployee("Aditi", "Verma", 28);
 
 console.log(emp_1.getBirthYear(), "...emp_1 getBirthYear");
 console.log(emp_2.getBirthYear(), "...emp_2 getBirthYear");
-console.log(emp_3.getBirthYear(), "...emp_3 getBirthYear");
+console.log(emp_3.getBirthYear(), "...emp_3 getBirthYear"); 
 
 //note: The protoTypes that are made with the function CreateNewEmployee() i.e getBirthYear and getFullName will also be copied inside the object emp_1 and emp_2 but with a different name (__proto__).
 //note: that means ProtoType of CreateNewEmployee is inherited by emp_1 and emp_2.
@@ -230,3 +230,6 @@ console.log(emp_3.getBirthYear(), "...emp_3 getBirthYear");
 console.log(emp_1.__proto__, "...protoType of emp_1");
 console.log(emp_2.__proto__, "...protoType of emp_2");
 console.log(emp_3.__proto__, "...protoType of emp_3");
+
+
+ 

@@ -1,0 +1,589 @@
+# Project: Banking & Personal Finance Management System
+
+Build a **console-based Banking & Personal Finance Management System in JavaScript**.
+
+The focus is purely on **OOP design**. You don’t need React, Node/Express, a database, or a UI yet.
+
+You’ll put the entire project into **one JavaScript file** so you can use a reference implementation later and compare your design against it.
+
+---
+
+# 1. OOP Concepts You Should Cover
+
+By the time you finish, you should have practical experience with:
+
+1. Classes
+2. Objects
+3. Constructors
+4. Instance properties
+5. Instance methods
+6. Static properties
+7. Static methods
+8. Encapsulation
+9. Public properties/methods
+10. Private properties/methods
+11. Getters
+12. Setters
+13. Inheritance
+14. Method overriding
+15. `super`
+16. Polymorphism
+17. Abstraction
+18. Composition
+19. Association
+20. `instanceof`
+21. Object interaction
+22. Class relationships
+
+The project is intentionally designed so each concept has a real purpose.
+
+---
+
+# 2. Problem Statement
+
+You’re building a **Personal Banking & Finance Management System**.
+
+The system should allow a bank to manage:
+
+* Customers
+* Bank accounts
+* Transactions
+* Employees
+* Financial information
+
+A customer can own multiple bank accounts.
+
+There are three account types:
+
+* **Savings Account**
+* **Checking Account**
+* **Credit Account**
+
+Each account shares some common functionality, but each type behaves differently.
+
+For example:
+
+* Savings accounts earn interest.
+* Checking accounts can have an overdraft limit.
+* Credit accounts have a credit limit and track credit usage.
+
+Your job is to design this entire system using **JavaScript OOP**.
+
+---
+
+# 3. Main Classes
+
+## `Person`
+
+Represents a general person.
+
+Possible properties:
+
+* name
+* email
+* phone
+
+Possible methods:
+
+* display information
+* update contact information
+
+This should become your **base class**.
+
+---
+
+## `Customer`
+
+A customer is a person who owns bank accounts.
+
+Therefore:
+
+> Customer **IS-A** Person.
+
+Use inheritance here.
+
+A customer should be able to:
+
+* manage accounts
+* view their accounts
+* view transaction history
+* calculate their total balance
+
+---
+
+## `Employee`
+
+An employee is also a person.
+
+Therefore:
+
+> Employee **IS-A** Person.
+
+Possible properties:
+
+* employee ID
+* department
+* salary
+
+Possible methods:
+
+* display employee information
+* process customer requests
+
+---
+
+# 4. Account Hierarchy
+
+Create a base class:
+
+## `BankAccount`
+
+This represents the functionality shared by all bank accounts.
+
+Possible properties:
+
+* account number
+* owner
+* balance
+* account status
+* transaction history
+
+Possible operations:
+
+* deposit
+* withdraw
+* transfer
+* check balance
+* close account
+* display account information
+
+Some properties should be **private**.
+
+For example, you shouldn't allow someone to arbitrarily modify the balance.
+
+Instead, the balance should change through valid operations such as deposits, withdrawals, and transfers.
+
+That's where you'll get real practice with **encapsulation**.
+
+---
+
+# 5. Different Account Types
+
+Create three subclasses.
+
+## `SavingsAccount`
+
+A savings account should:
+
+* inherit from `BankAccount`
+* have an interest rate
+* calculate interest
+* add interest to the account
+
+For example:
+
+> Calculate how much interest the customer earns from their current balance.
+
+---
+
+## `CheckingAccount`
+
+A checking account should:
+
+* inherit from `BankAccount`
+* have an overdraft limit
+* allow withdrawals beyond the current balance, up to the overdraft limit
+
+For example:
+
+Balance:
+
+> $500
+
+Overdraft:
+
+> $200
+
+Maximum withdrawal:
+
+> $700
+
+A withdrawal of $701 should fail.
+
+---
+
+## `CreditAccount`
+
+A credit account should:
+
+* inherit from `BankAccount`
+* have a credit limit
+* track credit usage
+* allow purchases
+* allow payments
+* calculate remaining credit
+
+For example:
+
+Credit limit:
+
+> $5,000
+
+Used credit:
+
+> $1,500
+
+Available credit:
+
+> $3,500
+
+---
+
+# 6. Transactions
+
+Create a:
+
+## `Transaction`
+
+A transaction represents an operation performed on an account.
+
+Possible properties:
+
+* transaction ID
+* transaction type
+* amount
+* date
+* account
+* description
+
+Possible transaction types:
+
+* Deposit
+* Withdrawal
+* Transfer
+* Interest
+* Payment
+* Purchase
+
+Every account should maintain its own transaction history.
+
+---
+
+# 7. Polymorphism Challenge
+
+This is one of the most important parts of the project.
+
+Your:
+
+* Savings Account
+* Checking Account
+* Credit Account
+
+should all have some common operation, such as:
+
+> `calculateAvailableFunds()`
+
+But the calculation should be different for each account type.
+
+Your system should be able to work with a general:
+
+> `BankAccount`
+
+without needing to know whether the actual object is a:
+
+* `SavingsAccount`
+* `CheckingAccount`
+* `CreditAccount`
+
+That's where you'll practice **polymorphism and method overriding**.
+
+---
+
+# 8. Abstraction Challenge
+
+Think of `BankAccount` as representing the **general idea of a bank account**.
+
+Some behavior can be defined at the general account level, while the exact implementation depends on the specific account type.
+
+For example:
+
+> Every account should be able to determine its available funds.
+
+But:
+
+> How available funds are calculated depends on the account type.
+
+Design your classes so the parent class establishes the common behavior/interface while the subclasses provide specialized behavior.
+
+This is a much better way to understand **abstraction** than simply memorizing its definition.
+
+---
+
+# 9. Encapsulation Challenge
+
+Keep sensitive information private.
+
+For example:
+
+* balance
+* PIN
+* credit usage
+
+The outside world shouldn't be able to arbitrarily change these values.
+
+Instead, changes should happen through controlled operations.
+
+Conceptually, you want:
+
+> deposit money
+
+rather than:
+
+> directly modify balance
+
+Also use **getters and setters** where they genuinely make sense.
+
+Don't automatically create a setter for every property. Ask yourself whether that value should actually be freely changeable.
+
+---
+
+# 10. Static Methods
+
+Your bank will have information that belongs to the **banking system as a whole**, rather than to one particular customer or account.
+
+For example:
+
+* total number of accounts
+* total number of customers
+* generating account numbers
+* validating account numbers
+
+Use appropriate **static properties and methods** for these.
+
+A useful question to ask yourself is:
+
+> "Does this belong to one object, or does it belong to the entire class/system?"
+
+That will help you understand when static members are appropriate.
+
+---
+
+# 11. Composition
+
+Your project should demonstrate relationships such as:
+
+> **Customer HAS-A BankAccount**
+
+and:
+
+> **BankAccount HAS-A Transaction history**
+
+For example, one customer might have:
+
+* Savings Account
+* Checking Account
+* Credit Account
+
+And each account can contain many transactions.
+
+This gives you a practical example of **composition**.
+
+---
+
+# 12. Association
+
+Also model a relationship such as:
+
+> **Employee works with Customer**
+
+An employee interacts with a customer, but the employee doesn't necessarily "own" the customer object.
+
+This gives you a practical example of **association**.
+
+---
+
+# 13. Getters and Setters
+
+Use getters and setters thoughtfully.
+
+For example, you might allow:
+
+> Get the current balance
+
+but not:
+
+> Set the balance directly.
+
+Similarly, you might allow a customer's email address to be updated through a setter that performs validation.
+
+The important part is understanding **why** a getter or setter exists.
+
+---
+
+# 14. Main Program
+
+At the bottom of your **single JavaScript file**, create a realistic scenario.
+
+### Step 1
+
+Create a bank.
+
+### Step 2
+
+Create several customers.
+
+For example:
+
+* Alice
+* Bob
+* Charlie
+
+### Step 3
+
+Create different accounts.
+
+Alice:
+
+* Savings Account
+* Checking Account
+
+Bob:
+
+* Savings Account
+* Credit Account
+
+Charlie:
+
+* Checking Account
+
+### Step 4
+
+Perform transactions.
+
+For example:
+
+Alice:
+
+> Deposit $5,000
+
+Then:
+
+> Withdraw $1,000
+
+Then:
+
+> Transfer $500 to Bob
+
+Bob:
+
+> Make a $1,000 credit purchase
+
+Then:
+
+> Make a $300 payment
+
+### Step 5
+
+Apply savings interest.
+
+### Step 6
+
+Display transaction histories.
+
+### Step 7
+
+Display account balances.
+
+### Step 8
+
+Display each customer's total financial position.
+
+---
+
+# 15. The Important Part: Make the Objects Interact
+
+Don't create a bunch of classes just because the assignment says "use OOP."
+
+The interesting part is making your objects **work together**.
+
+Think about a structure like this:
+
+Bank
+│
+├── Customers
+│   │
+│   ├── SavingsAccount
+│   │       └── Transactions
+│   │
+│   ├── CheckingAccount
+│   │       └── Transactions
+│   │
+│   └── CreditAccount
+│           └── Transactions
+│
+└── Employees
+
+You should be able to follow an operation through multiple objects.
+
+For example:
+
+> Customer → Account → Transaction
+
+or:
+
+> Customer A → Account A → Transfer → Account B → Transaction
+
+That's where the OOP concepts start becoming connected rather than isolated topics.
+
+---
+
+# 16. Your OOP Checklist
+
+When you're finished, you should be able to identify exactly where each concept appears:
+
+| Concept             | Where you should use it                         |
+| ------------------- | ----------------------------------------------- |
+| Class               | Person, Customer, Account, Transaction, etc.    |
+| Object              | Individual customers/accounts                   |
+| Constructor         | Initialize objects                              |
+| Instance properties | Customer/account data                           |
+| Instance methods    | Deposit, withdraw, transfer                     |
+| Static property     | Bank-wide counters                              |
+| Static method       | Account-number generation/validation            |
+| Encapsulation       | Balance/PIN/credit usage                        |
+| Private fields      | Sensitive account data                          |
+| Getter              | Reading controlled information                  |
+| Setter              | Controlled updates                              |
+| Inheritance         | Customer → Person, Account types → BankAccount  |
+| Method overriding   | Different account behaviors                     |
+| `super`             | Child constructors/methods                      |
+| Polymorphism        | Treat different account types as BankAccount    |
+| Abstraction         | Generic BankAccount behavior                    |
+| Composition         | Customer has accounts, account has transactions |
+| Association         | Employee interacts with Customer                |
+| `instanceof`        | Determine account/person types                  |
+| Object interaction  | Transactions between accounts/customers         |
+
+---
+
+# One Rule While Building It
+
+**Don't start by looking at the solution.**
+
+First design it yourself.
+
+Before writing code, take a piece of paper and draw your classes.
+
+For every class, ask yourself:
+
+1. What data does this object own?
+2. What actions can this object perform?
+3. Which properties should be private?
+4. What should be inherited?
+5. What behavior should be overridden?
+6. Which objects should contain other objects?
+7. Which relationships are **IS-A**?
+8. Which relationships are **HAS-A**?
+9. Where does polymorphism make sense?
+
+Once you've attempted the project yourself, you can compare your implementation against a **single complete JavaScript reference file** containing the entire implementation and then go through it class-by-class to see exactly where every OOP concept was used.
