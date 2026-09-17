@@ -9,12 +9,23 @@
 // Studying about (Inheritance , super keyword and extends keyword)
 
 class Person {
+  // thru living() method we are learning inheritance that method is also passed on to class .
   living() {
-    return "living life";
+    return " Living life";
+  }
+
+  // thru Walking() method we are learning PolyMorphism , how Walking is the same method but used at different places and also learning Method OverRiding.
+
+  Walking() {
+    return "a Person is Walking";
   }
 }
 
 class User extends Person {
+  Walking() {
+    return `User ${this.firstName} is walking. `;
+  }
+
   //Constructor ->
   constructor(firstName, lastName, age) {
     super(); // this will call the Parent class i.e Person
@@ -51,6 +62,9 @@ class User extends Person {
 }
 
 class Student extends User {
+  Walking() {
+    return `${this.firstName} is walking in ${Student.schoolName}`;
+  }
   constructor(firstName, lastName, age, grade) {
     super(firstName, lastName, age); // this will call the Parent Class i.e User
     this.grade = grade;
@@ -58,7 +72,8 @@ class Student extends User {
 
   // Static block( static block will link to class directly - So School is associated with it )
   static {
-    this.schoolName = "St Xaviers Sen Sec School ";
+    this.schoolName =
+      "St Xaviers Sen Sec School, 4- Raj Niwas Marg , Civil lines , Delhi -110054.";
     this.SchoolDetails = function () {
       return `${this.schoolName} is the best school in Delhi , India`;
     };
@@ -79,6 +94,12 @@ class Student extends User {
 }
 
 class Employee extends User {
+  living() {
+    return `${this.firstName} is living in ${Employee.company}`;
+  }
+
+  //note: Intentionally (No walking method in Employee Class ) - So it pick up User's Walking method
+
   constructor(firstName, lastName, age, salary) {
     super(firstName, lastName, age); // this will call the Parent class i.e User
     this.salary = salary;
@@ -98,40 +119,49 @@ class Employee extends User {
     s;
   }
 }
+//note:---------------------------------------------------------------------------------------------------
 
-//--------------- 1. Creating Person
+// --------------- 1. Creating Person
 
 // let person_1 = new Person();
 
 // console.log(person_1, "...Person_1");
-// person_1.living();  // Calling the Function inside Person class
+// console.log(person_1.living(), ".....Person living method"); // Calling the Function inside Person class
 
 //---------------- 2. Creating User
 // let user_1 = new User("Pushan", "Verma", 25);
 
+// console.log(user_1, "....user_1 before changing");
+
 // user_1.living(); // testing if user can access Person class method
-
 // console.log(user_1.living(), "...user_1 calling Person class method ");
+// console.log(user_1.Walking(), "----User Walking method called");
 
+// // Setter function
 // user_1.UserDetails = {
 //   firstName: "Dakshesh",
 //   lastName: "Gandhe",
 //   age: 24,
 // };
-// console.log(user_1, "......user_1");
-// console.log(user_1.UserDetails, "....user_1 Details"); // accessing the Getter function inside User class
+
+// console.log(user_1, "......user_1 after changing ");
+
+// //Accessing the Getter function inside User class
+// console.log(user_1.UserDetails, "....user_1 Details");
+
+// // Accessing the methods inside User class
 // console.log(user_1.getBirthYear(user_1.age), "....user_1 getBirthYear");
 // console.log(user_1.getFullName(), "....user_1 getFullName");
 
 //-------------- 3. Creating Student
 
-// let student_1 = new Student("Dakshesh", "Gandhe", 24, "7th");
+// let student_1 = new Student("Pushan", "Verma", 24, "7th");
 
 // student_1.living(); // Accessing the Person class method
-
+// console.log(student_1.Walking(), "----Student Walking method called");
 // console.log(student_1, "........Student_1");
 
-//Setting user Details ->
+// // Setting user Details ->
 // student_1.UserDetails = {
 //   firstName: "Dheeraj",
 //   lastName: "Kandikattu",
@@ -143,58 +173,28 @@ class Employee extends User {
 
 // student_1.Study();
 
-//---------------- Creating Employee
+//------------------- Creating Employee
 
-// let employee_1 = new Employee("Bosu Bade ", "Babu", 28, 4000);
+let employee_1 = new Employee("Pushan", "Verma", 26, 4000);
 
-// console.log(employee_1, "....employee_1");
-
-// console.log(employee_1.living(), ".....Accessing Employee_1 "); // Accessing the Person Living method
+console.log(employee_1, "....employee_1");
+console.log(employee_1.Walking(), "----Employee Walking (User's Method)");
+console.log(employee_1.living(), ".....Accessing Employee_1 "); // Accessing the Person Living method
 
 // // Accessing user Class setter function
-// employee_1.UserDetails = {
-//   firstName: "Pushan",
-//   lastName: "Verma",
-//   age: 26,
-//   salary: 5000,
-// };
+employee_1.UserDetails = {
+  firstName: "Bosu Bade",
+  lastName: "Babu",
+  age: 28,
+  salary: 5000,
+};
 
 // // Accessing user Class getter function
-// console.log(employee_1.UserDetails, "......getting user Details"); 
+console.log(employee_1.UserDetails, "......getting user Details");
 
-// // Employee Class Method ->
-// employee_1.Work();
+// Employee Class Method ->
+employee_1.Work();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Encapsulation
+// Abstraction
+// PolyMorphism
