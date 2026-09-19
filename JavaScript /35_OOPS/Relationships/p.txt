@@ -1,0 +1,1070 @@
+```js
+// ============================================================
+// UNIVERSITY MANAGEMENT SYSTEM
+// ============================================================
+//
+// OOP Concepts Covered:
+//
+// 1. Classes & Objects
+// 2. Constructors
+// 3. Instance Methods
+// 4. Getters & Setters
+// 5. Encapsulation
+// 6. Private Fields (#)
+// 7. Inheritance
+// 8. extends
+// 9. super()
+// 10. Method Overriding
+// 11. Polymorphism
+// 12. Static Properties & Methods
+// 13. IS-A Relationship
+// 14. HAS-A Relationship
+// 15. Association
+// 16. Dependency
+// 17. Aggregation
+// 18. Composition
+// 19. Dependency Injection
+// 20. instanceof
+// 21. Prototype Chain
+//
+// ============================================================
+
+
+
+// ============================================================
+// 1. PERSON
+// ============================================================
+//
+// Person is our BASE / PARENT class.
+//
+// Student IS-A Person
+// Professor IS-A Person
+//
+// This demonstrates:
+// - Class
+// - Constructor
+// - Encapsulation
+// - Private field
+// - Getter
+// - Setter
+// - Instance method
+// ============================================================
+
+class Person {
+
+  // Private property
+  #age;
+
+  constructor(name, age) {
+    this.name = name;
+    this.#age = age;
+  }
+
+  // -------------------------
+  // Getter
+  // -------------------------
+
+  get age() {
+    return this.#age;
+  }
+
+  // -------------------------
+  // Setter
+  // -------------------------
+
+  set age(value) {
+
+    if (value < 0) {
+      console.log("Age cannot be negative.");
+      return;
+    }
+
+    this.#age = value;
+  }
+
+  // -------------------------
+  // Normal method
+  // -------------------------
+
+  introduce() {
+    return `Hello, my name is ${this.name}`;
+  }
+}
+
+
+
+// ============================================================
+// 2. ADDRESS
+// ============================================================
+//
+// Address is an independent class.
+//
+// Student HAS-A Address
+//
+// This demonstrates:
+// - HAS-A relationship
+// - Object reference
+// ============================================================
+
+class Address {
+
+  constructor(city, state) {
+    this.city = city;
+    this.state = state;
+  }
+
+  getAddress() {
+    return `${this.city}, ${this.state}`;
+  }
+}
+
+
+
+// ============================================================
+// 3. COURSE
+// ============================================================
+//
+// Course contains students and a professor.
+//
+// Course ASSOCIATES with:
+// - Student
+// - Professor
+//
+// ============================================================
+
+class Course {
+
+  constructor(courseName, courseCode) {
+
+    this.courseName = courseName;
+    this.courseCode = courseCode;
+
+    // List of students enrolled
+    this.students = [];
+
+    // Professor who teaches the course
+    this.professor = null;
+  }
+
+  // -------------------------
+  // Add Student
+  // -------------------------
+
+  addStudent(student) {
+
+    this.students.push(student);
+
+    console.log(
+      `${student.name} has been added to ${this.courseName}`
+    );
+  }
+
+  // -------------------------
+  // Assign Professor
+  // -------------------------
+
+  setProfessor(professor) {
+
+    this.professor = professor;
+
+    console.log(
+      `${professor.name} is now teaching ${this.courseName}`
+    );
+  }
+
+  // -------------------------
+  // Course Details
+  // -------------------------
+
+  getCourseDetails() {
+
+    return `${this.courseCode} - ${this.courseName}`;
+  }
+
+  // -------------------------
+  // Display Students
+  // -------------------------
+
+  showStudents() {
+
+    console.log(`\nStudents in ${this.courseName}:`);
+
+    this.students.forEach((student) => {
+
+      console.log(
+        `- ${student.name} (${student.studentId})`
+      );
+
+    });
+  }
+}
+
+
+
+// ============================================================
+// 4. NOTIFICATION SERVICE
+// ============================================================
+//
+// This class will be used as a DEPENDENCY.
+//
+// Student does not own NotificationService.
+//
+// Student simply USES it when needed.
+//
+// Relationship:
+//
+// Student
+//    |
+//    | temporarily uses
+//    ↓
+// NotificationService
+//
+// ============================================================
+
+class NotificationService {
+
+  send(message) {
+
+    console.log(`\nNotification: ${message}`);
+  }
+}
+
+
+
+// ============================================================
+// 5. STUDENT
+// ============================================================
+//
+// Student extends Person.
+//
+// Therefore:
+//
+// Student IS-A Person
+//
+// This demonstrates:
+// - Inheritance
+// - extends
+// - super()
+// - Method overriding
+// - Polymorphism
+// - HAS-A relationship
+// - Association
+// - Dependency Injection
+// ============================================================
+
+class Student extends Person {
+
+  constructor(
+    name,
+    age,
+    studentId,
+    address,
+    notificationService
+  ) {
+
+    // Call Person constructor
+    super(name, age);
+
+    this.studentId = studentId;
+
+    // -------------------------
+    // HAS-A relationship
+    // -------------------------
+    //
+    // Student HAS-A Address
+    //
+
+    this.address = address;
+
+
+    // -------------------------
+    // Dependency Injection
+    // -------------------------
+    //
+    // NotificationService is injected
+    // into Student.
+    //
+
+    this.notificationService =
+      notificationService;
+
+
+    // -------------------------
+    // Student HAS-A Courses
+    // -------------------------
+
+    this.courses = [];
+  }
+
+
+  // ==========================================================
+  // Method Overriding
+  // ==========================================================
+  //
+  // Person has introduce()
+  //
+  // Student provides its own version.
+  //
+  // This is POLYMORPHISM.
+  // ==========================================================
+
+  introduce() {
+
+    return (
+      super.introduce() +
+      ` and I am a student with ID ${this.studentId}`
+    );
+  }
+
+
+  // ==========================================================
+  // Enroll in Course
+  // ==========================================================
+  //
+  // Student ASSOCIATES with Course.
+  //
+  // ==========================================================
+
+  enroll(course) {
+
+    this.courses.push(course);
+
+    course.addStudent(this);
+
+    console.log(
+      `${this.name} enrolled in ${course.courseName}`
+    );
+  }
+
+
+  // ==========================================================
+  // Show Student Courses
+  // ==========================================================
+
+  showCourses() {
+
+    console.log(`\nCourses for ${this.name}:`);
+
+    this.courses.forEach((course) => {
+
+      console.log(
+        `- ${course.getCourseDetails()}`
+      );
+
+    });
+  }
+
+
+  // ==========================================================
+  // Dependency Example
+  // ==========================================================
+  //
+  // Student uses NotificationService.
+  //
+  // ==========================================================
+
+  notify() {
+
+    this.notificationService.send(
+      `${this.name}, your university notification has arrived.`
+    );
+  }
+}
+
+
+
+// ============================================================
+// 6. PROFESSOR
+// ============================================================
+//
+// Professor IS-A Person.
+//
+// This demonstrates:
+// - Inheritance
+// - Method overriding
+// - Association with Course
+// ============================================================
+
+class Professor extends Person {
+
+  constructor(name, age, employeeId) {
+
+    super(name, age);
+
+    this.employeeId = employeeId;
+  }
+
+
+  // ==========================================================
+  // Method Overriding
+  // ==========================================================
+
+  introduce() {
+
+    return (
+      super.introduce() +
+      ` and I am a Professor with employee ID ${this.employeeId}`
+    );
+  }
+
+
+  // ==========================================================
+  // Teach Course
+  // ==========================================================
+  //
+  // Professor ASSOCIATES with Course.
+  //
+  // ==========================================================
+
+  teach(course) {
+
+    course.setProfessor(this);
+  }
+}
+
+
+
+// ============================================================
+// 7. DEPARTMENT
+// ============================================================
+//
+// Department contains Professors and Courses.
+//
+// Department AGGREGATES Professors.
+//
+// Why?
+//
+// Professors were created independently:
+//
+// const professor1 = new Professor(...);
+//
+// Then we put them into Department.
+//
+// Therefore Professor can exist independently.
+//
+// ============================================================
+
+class Department {
+
+  constructor(name, professors = []) {
+
+    this.name = name;
+
+    // Aggregation
+    this.professors = professors;
+
+    // Department HAS-A Courses
+    this.courses = [];
+  }
+
+
+  // ==========================================================
+  // Add Professor
+  // ==========================================================
+
+  addProfessor(professor) {
+
+    this.professors.push(professor);
+
+    console.log(
+      `${professor.name} joined ${this.name} department`
+    );
+  }
+
+
+  // ==========================================================
+  // Add Course
+  // ==========================================================
+
+  addCourse(course) {
+
+    this.courses.push(course);
+
+    console.log(
+      `${course.courseName} added to ${this.name} department`
+    );
+  }
+
+
+  // ==========================================================
+  // Show Professors
+  // ==========================================================
+
+  showProfessors() {
+
+    console.log(
+      `\nProfessors in ${this.name}:`
+    );
+
+    this.professors.forEach((professor) => {
+
+      console.log(
+        `- ${professor.name}`
+      );
+
+    });
+  }
+}
+
+
+
+// ============================================================
+// 8. UNIVERSITY
+// ============================================================
+//
+// University contains Departments.
+//
+// This demonstrates:
+// - Composition
+// - Static members
+// - HAS-A relationship
+//
+// ============================================================
+
+class University {
+
+  // ==========================================================
+  // Static Property
+  // ==========================================================
+  //
+  // Belongs to the CLASS, not individual objects.
+  //
+  // ==========================================================
+
+  static universityCount = 0;
+
+
+  constructor(name) {
+
+    this.name = name;
+
+    // HAS-A relationship
+    this.departments = [];
+
+    // Increase number of universities
+    University.universityCount++;
+  }
+
+
+  // ==========================================================
+  // Static Method 
+  // ==========================================================
+
+  static getUniversityCount() {
+
+    return University.universityCount;
+  }
+
+
+  // ==========================================================
+  // Add Department
+  // ==========================================================
+  //
+  // University HAS-A Department.
+  //
+  // ==========================================================
+
+  addDepartment(department) {
+
+    this.departments.push(department);
+
+    console.log(
+      `${department.name} department added to ${this.name}`
+    );
+  }
+
+
+  // ==========================================================
+  // Show Departments
+  // ==========================================================
+
+  showDepartments() {
+
+    console.log(
+      `\nDepartments in ${this.name}:`
+    );
+
+    this.departments.forEach((department) => {
+
+      console.log(
+        `- ${department.name}`
+      );
+
+    });
+  }
+}
+
+
+
+// ============================================================
+// 9. CREATING OBJECTS
+// ============================================================
+//
+// Now we actually RUN our OOP system.
+//
+// ============================================================
+
+
+
+// ------------------------------------------------------------
+// Create Address
+// ------------------------------------------------------------
+
+const address1 = new Address(
+  "Fort Wayne",
+  "Indiana"
+);
+
+
+
+// ------------------------------------------------------------
+// Create Notification Service
+// ------------------------------------------------------------
+
+const notificationService =
+  new NotificationService();
+
+
+
+// ------------------------------------------------------------
+// Create Student
+// ------------------------------------------------------------
+//
+// Student gets NotificationService through
+// Dependency Injection.
+//
+// ------------------------------------------------------------
+
+const student1 = new Student(
+  "Pushan",
+  25,
+  "S1001",
+  address1,
+  notificationService
+);
+
+
+
+// ------------------------------------------------------------
+// Create Professors
+// ------------------------------------------------------------
+//
+// These professors exist BEFORE the department.
+//
+// This is important for understanding AGGREGATION.
+//
+// ------------------------------------------------------------
+
+const professor1 = new Professor(
+  "Dr. Smith",
+  45,
+  "P1001"
+);
+
+const professor2 = new Professor(
+  "Dr. Johnson",
+  50,
+  "P1002"
+);
+
+
+
+// ------------------------------------------------------------
+// Create Courses
+// ------------------------------------------------------------
+
+const operatingSystems = new Course(
+  "Operating Systems",
+  "CS501"
+);
+
+const machineLearning = new Course(
+  "Machine Learning",
+  "CS576"
+);
+
+
+
+// ------------------------------------------------------------
+// Create Department
+// ------------------------------------------------------------
+//
+// We pass already-existing professors.
+//
+// Therefore this demonstrates AGGREGATION.
+//
+// ------------------------------------------------------------
+
+const computerScience =
+  new Department(
+    "Computer Science",
+    [
+      professor1,
+      professor2
+    ]
+  );
+
+
+
+// ------------------------------------------------------------
+// Create University
+// ------------------------------------------------------------
+
+const university =
+  new University(
+    "Purdue Fort Wayne"
+  );
+
+
+
+// ============================================================
+// RUNNING THE SYSTEM
+// ============================================================
+
+
+
+console.log(
+  "\n=============================="
+);
+
+console.log(
+  "1. PERSON / STUDENT"
+);
+
+console.log(
+  "=============================="
+);
+
+console.log(
+  student1.introduce()
+);
+
+
+
+// ============================================================
+// GETTER
+// ============================================================
+
+console.log(
+  "\nStudent Age:",
+  student1.age
+);
+
+
+
+// ============================================================
+// SETTER
+// ============================================================
+
+student1.age = 26;
+
+console.log(
+  "Updated Age:",
+  student1.age
+);
+
+
+
+// Try invalid age
+
+student1.age = -10;
+
+
+
+// ============================================================
+// HAS-A RELATIONSHIP
+// ============================================================
+//
+// Student HAS-A Address
+//
+// ============================================================
+
+console.log(
+  "\nStudent Address:",
+  student1.address.getAddress()
+);
+
+
+
+// ============================================================
+// ASSOCIATION
+// ============================================================
+//
+// Student ASSOCIATES with Course.
+//
+// ============================================================
+
+console.log(
+  "\n=============================="
+);
+
+console.log(
+  "2. COURSE ENROLLMENT"
+);
+
+console.log(
+  "=============================="
+);
+
+student1.enroll(
+  operatingSystems
+);
+
+student1.enroll(
+  machineLearning
+);
+
+student1.showCourses();
+
+
+
+// ============================================================
+// PROFESSOR ASSOCIATION
+// ============================================================
+//
+// Professor ASSOCIATES with Course.
+//
+// ============================================================
+
+console.log(
+  "\n=============================="
+);
+
+console.log(
+  "3. PROFESSOR"
+);
+
+console.log(
+  "=============================="
+);
+
+professor1.teach(
+  operatingSystems
+);
+
+professor2.teach(
+  machineLearning
+);
+
+
+
+// ============================================================
+// DEPARTMENT
+// ============================================================
+
+computerScience.addCourse(
+  operatingSystems
+);
+
+computerScience.addCourse(
+  machineLearning
+);
+
+computerScience.showProfessors();
+
+
+
+// ============================================================
+// UNIVERSITY
+// ============================================================
+
+console.log(
+  "\n=============================="
+);
+
+console.log(
+  "4. UNIVERSITY"
+);
+
+console.log(
+  "=============================="
+);
+
+university.addDepartment(
+  computerScience
+);
+
+university.showDepartments();
+
+
+
+// ============================================================
+// DEPENDENCY
+// ============================================================
+//
+// Student temporarily USES NotificationService.
+//
+// ============================================================
+
+console.log(
+  "\n=============================="
+);
+
+console.log(
+  "5. DEPENDENCY"
+);
+
+console.log(
+  "=============================="
+);
+
+student1.notify();
+
+
+
+// ============================================================
+// POLYMORPHISM
+// ============================================================
+//
+// Same method:
+// introduce()
+//
+// Different implementation:
+// Student
+// Professor
+//
+// ============================================================
+
+console.log(
+  "\n=============================="
+);
+
+console.log(
+  "6. POLYMORPHISM"
+);
+
+console.log(
+  "=============================="
+);
+
+const people = [
+  student1,
+  professor1
+];
+
+people.forEach((person) => {
+
+  console.log(
+    person.introduce()
+  );
+
+});
+
+
+
+// ============================================================
+// STATIC PROPERTY / METHOD
+// ============================================================
+
+console.log(
+  "\n=============================="
+);
+
+console.log(
+  "7. STATIC"
+);
+
+console.log(
+  "=============================="
+);
+
+console.log(
+  "Number of universities:",
+  University.getUniversityCount()
+);
+
+
+
+// ============================================================
+// INSTANCEOF
+// ============================================================
+
+console.log(
+  "\n=============================="
+);
+
+console.log(
+  "8. INSTANCEOF"
+);
+
+console.log(
+  "=============================="
+);
+
+console.log(
+  "student1 instanceof Student:",
+  student1 instanceof Student
+);
+
+console.log(
+  "student1 instanceof Person:",
+  student1 instanceof Person
+);
+
+console.log(
+  "student1 instanceof Object:",
+  student1 instanceof Object
+);
+
+
+
+// ============================================================
+// PROTOTYPE CHAIN
+// ============================================================
+
+console.log(
+  "\n=============================="
+);
+
+console.log(
+  "9. PROTOTYPE CHAIN"
+);
+
+console.log(
+  "=============================="
+);
+
+console.log(
+  Object.getPrototypeOf(student1)
+);
+
+console.log(
+  Object.getPrototypeOf(
+    Object.getPrototypeOf(student1)
+  )
+);
+
+
+
+// ============================================================
+// FINAL RELATIONSHIP SUMMARY
+// ============================================================
+//
+// Student IS-A Person
+//
+// Student HAS-A Address
+//
+// Student HAS-A Courses
+//
+// Student ASSOCIATES with Course
+//
+// Student DEPENDS ON NotificationService
+//
+// Professor IS-A Person
+//
+// Professor ASSOCIATES with Course
+//
+// Department AGGREGATES Professors
+//
+// Department HAS-A Courses
+//
+// University HAS-A Departments
+//
+// University COMPOSES Departments
+//
+// Student + Professor
+//       ↓
+//   Polymorphism
+//
+// ============================================================
+```

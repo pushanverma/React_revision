@@ -1,0 +1,11 @@
+We will study how the objects are related to each other with the help of Relationships. 
+It helps us to relate the individual elements together. 
+
+1. is-a Relationship 
+2. has-a Relationship 
+3. Association 
+4. Dependency 
+5. Aggregation 
+6. Composition 
+
+
