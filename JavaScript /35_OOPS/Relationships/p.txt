@@ -318,7 +318,7 @@ class Student extends Person {
 
 
   // ==========================================================
-  // Enroll in Course
+  // Enroll in Course 
   // ==========================================================
   //
   // Student ASSOCIATES with Course.
@@ -327,8 +327,10 @@ class Student extends Person {
 
   enroll(course) {
 
+// Adding the course to Students list 
     this.courses.push(course);
 
+// Adding the Student to the Course 
     course.addStudent(this);
 
     console.log(
@@ -509,7 +511,7 @@ class Department {
 
 
 // ============================================================
-// 8. UNIVERSITY
+// 8. UNIVERSITY 
 // ============================================================
 //
 // University contains Departments.
