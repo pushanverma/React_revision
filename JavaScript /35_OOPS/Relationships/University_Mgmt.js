@@ -8,7 +8,7 @@
 
 // Person is a base class
 
-//topic: BASE CLASSES -->
+//topic: ------------------------------BASE CLASSES---------------------------------------
 
 // note: There will be a lot of Person in University (Person can be a Student / Professor / Staff)
 
@@ -18,7 +18,7 @@ class Person {
 
   constructor(name, age) {
     this.name = name;
-    this.age = age;
+    this.#age = age;
   }
 
   // Getter Function
@@ -28,7 +28,7 @@ class Person {
 
   // Setter Function
   set age(value) {
-    if (age < 0) {
+    if (this.#age < 0) {
       console.log("Age cant be negative.");
       return;
     }
@@ -45,7 +45,7 @@ class Person {
 //note:  Student "has-a" Address (has-a - Aggregartion(Weak Relationship )  / Composition(Strong Relationship) )
 
 class Address {
-  constructor(state, city) {
+  constructor(city, state) {
     this.state = state;
     this.city = city;
   }
@@ -76,7 +76,7 @@ class Course {
 
   addStudent(student) {
     console.log(
-      `....Adding Student - ${student} to course - ${this.courseName}`,
+      `....Adding Student - ${student.name} to course - ${this.courseName}`,
     );
     this.students.push(student);
   }
@@ -84,7 +84,7 @@ class Course {
   // Assign Professor
   addProfessor(professor) {
     console.log(
-      `...Adding Professor - ${professor} to the course - ${this.courseName}`,
+      `...Adding Professor - ${professor.name} to the course - ${this.courseName}`,
     );
     this.professor = professor;
   }
@@ -112,16 +112,17 @@ class NotificationService {
   }
 }
 
-//topic : MAIN CLASSES --->
+//topic : ------------------------MAIN CLASSES -------------------------------------->
 
 class Student extends Person {
-  constructor(name, age, address, studentId, course, notificationService) {
+  constructor(name, age, address, studentId, notificationService) {
     super(name, age); // From Person class
     this.studentId = studentId; // Student "has-a" studentId
     this.address = address; // Student "has-a" address
     this.courses = []; // a student "has-a" lot of courses.
     this.notificationService = notificationService; // Student uses temporarily notificationService
   }
+  // Introduce , Enroll , showCourses , notify,
 
   // Method OverRiding (part of Polymorphism - Poly means many , morph - means forms - many forms of the same function i.e introduce ) ->
   introduce() {
@@ -133,19 +134,22 @@ class Student extends Person {
 
   enroll(course) {
     // Adding the course to the courseList of Student
+    // console.log("Adding the course to the courseList of Student.......1");
     this.courses.push(course);
 
     // Adding the Student to the course
+    // console.log("Adding the Student to the course.......2");
     course.addStudent(this);
 
-    console.log(`Adding the ${this.name} to the course - ${course}`);
+    //Finally Enrolled
+    console.log(`Adding the ${this.name} to the course - ${course.courseName}`);
   }
 
   // ShowCourses - list all the enrolled courses of Student
 
   showCourses() {
-    this.courses.forEach((course) => {
-      console.log(`Course ->  ${course}`);
+    this.courses.forEach((crs) => {
+      console.log(`Course ->  ${crs.courseName}`);
     });
   }
 
@@ -191,15 +195,14 @@ class Department {
   //addProfessor
 
   addProfessor(professor) {
-    console.log(`...Adding ${professor} to deparment - {this.deptName}`);
+    console.log(`...Adding ${professor.name} to deparment - ${this.deptName}`);
     this.professors.push(professor);
   }
 
   // showProfessor
-
   showProfessor() {
     this.professors.forEach((prof) => {
-      console.log(`Professor - ${prof}`);
+      console.log(`Professor - ${prof.name}`);
     });
   }
 
@@ -216,13 +219,47 @@ class Department {
       console.log(`Course -  ${crs}`);
     });
   }
+
 }
 
 class University {
-
   constructor(universityName) {
     this.universityName = universityName;
     this.departments = [];
+  }
+
+  static {
+    // Properties
+    let total_no_of_prof = 100;
+
+    let university_area = "1000 Acres";
+
+    let establishment_year = 1964;
+
+    let total_dept = [
+      "Psychology",
+      "Computer Science",
+      "Liberal Arts",
+      "Music",
+      "Business",
+    ];
+
+    //Methods
+    this.getUniversityDetails = function () {
+      let area = `This University ${this.universityName} is locted in ${university_area}`;
+      let establishment = `and is established in ${this.establishment_year}`;
+      let education = `and has a total of ${total_no_of_prof}`;
+      let departments = total_dept.map((item, index) => {
+        console.log(item + " , ");
+      });
+      return (
+        area +
+        establishment +
+        education +
+        "and has departments ->" +
+        departments
+      );
+    };
   }
 
   // Add Department-->
@@ -238,8 +275,102 @@ class University {
     });
   }
 
+  displayUniversityDetails() {}
 }
 
-//topic :  CREATING OBJECTS --->
+//topic : --------------------------- CREATING OBJECTS -------------------------->
+
+//Creating  address
+let address_1 = new Address("Manhattan", "New York");
+
+console.log(address_1.getAddress(), ".....getting Address");
+console.log("--------------------------------------------");
+
+//Creating Notification Service
+let notificationService = new NotificationService();
+console.log(notificationService.sendMessage("Bhosdk Padhle"), ".....Message ");
+console.log("--------------------------------------------");
+
+//Creating Student
+// constructor(name, age, address, studentId,notificationService) {
+let student_1 = new Student(
+  "Pushan Verma",
+  26,
+  address_1,
+  "S-2599",
+  notificationService,
+);
+
+// introduce , enroll , showCourse , notify
+student_1.introduce();
+console.log("-----------------------------------------------");
+
+//Creating one course
+let operatingSystem = new Course("Operating Systems", "CS-531");
+
+student_1.enroll(operatingSystem);
+console.log("--------------------------------------------");
+
+//Adding one more course
+let machineLearning = new Course("Machine Learning", "OCS-3455");
+student_1.enroll(machineLearning);
+
+let deepLearning = new Course("Deep Learning", "CS-5432");
+student_1.enroll(deepLearning);
+
+student_1.showCourses();
+console.log("--------------------------------------------");
+
+student_1.notify();
+
+console.log("************************************************");
+
+// Creating Professor
+// Professor can exist before the University / After the University / Outside the University
+// Important for understanding the Aggregation.
+
+let professor_1 = new Professor("Haytham Idriss", 45, "P-01");
+let professor_2 = new Professor("Jay Johns", 38, "P-05");
+let professor_3 = new Professor("Anshuman Misra", 32,"P-07");
+
+// introduce and teachCourse
+professor_1.introduce();
+
+professor_1.teachCourse(operatingSystem);
+
+// Creating Course
+
+console.log("************************************************");
+
+// Creating Department ->
+let compSciDept = new Department("Computer Science ", [
+  professor_1,
+  professor_2,
+  professor_3
+]);
+
+//addProfessor , addCourse , showProfessor , showCourse 
+
+compSciDept.showProfessor();
+
+compSciDept.showCourses();
+
+// addProfessor(professor) {
+//     console.log(`...Adding ${professor} to deparment - {this.deptName}`);
+//     this.professors.push(professor);
+//   }
+
+let professor_4 = new Professor("Zensheng Chen", 38,"P-02");
+
+compSciDept.addProfessor(professor_4);
+
+
+console.log("************************************************");
+
+
+
+
+//Creating University ->
+let university_1 = new University("Purdue University");
 
 

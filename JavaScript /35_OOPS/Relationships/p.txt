@@ -609,7 +609,7 @@ class University {
 
 
 // ------------------------------------------------------------
-// Create Address
+// Create Address --- Done 
 // ------------------------------------------------------------
 
 const address1 = new Address(
@@ -620,7 +620,7 @@ const address1 = new Address(
 
 
 // ------------------------------------------------------------
-// Create Notification Service
+// Create Notification Service -- Done 
 // ------------------------------------------------------------
 
 const notificationService =
@@ -629,7 +629,7 @@ const notificationService =
 
 
 // ------------------------------------------------------------
-// Create Student
+// Create Student. 
 // ------------------------------------------------------------
 //
 // Student gets NotificationService through
