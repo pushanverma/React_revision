@@ -423,4 +423,3 @@ university_1.addDepartmentinUniversity(dept_2);
 
 university_1.displayUniversityDetails();
 
-// university_1.getUniversityDetails;
