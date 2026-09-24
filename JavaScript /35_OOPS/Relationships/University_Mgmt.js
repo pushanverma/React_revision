@@ -208,7 +208,7 @@ class Department {
 
   // Add courses
   addCourse(course) {
-    console.log(`Adding course ${course} to ${this.deptName}`);
+    console.log(`Adding course ${course.courseName} to ${this.deptName}`);
     this.courses.push(course);
   }
 
@@ -216,10 +216,9 @@ class Department {
 
   showCourses() {
     this.courses.forEach((crs) => {
-      console.log(`Course -  ${crs}`);
+      console.log(`Course -  ${crs.courseName}`);
     });
   }
-
 }
 
 class University {
@@ -247,24 +246,22 @@ class University {
     //Methods
     this.getUniversityDetails = function () {
       let area = `This University ${this.universityName} is locted in ${university_area}`;
-      let establishment = `and is established in ${this.establishment_year}`;
-      let education = `and has a total of ${total_no_of_prof}`;
-      let departments = total_dept.map((item, index) => {
-        console.log(item + " , ");
-      });
+      let establishment = `and is established in ${establishment_year}`;
+      let education = ` and has a total of ${total_no_of_prof} `;
+
       return (
         area +
         establishment +
         education +
         "and has departments ->" +
-        departments
+        total_dept.join(" , ")
       );
     };
   }
 
   // Add Department-->
   addDepartmentinUniversity(dept) {
-    console.log(`...Adding ${dept} to ${this.universityName}`);
+    console.log(`...Adding ${dept.deptName} to ${this.universityName}`);
     this.departments.push(dept);
   }
 
@@ -275,7 +272,9 @@ class University {
     });
   }
 
-  displayUniversityDetails() {}
+  displayUniversityDetails() {
+    console.log(University.getUniversityDetails());
+  }
 }
 
 //topic : --------------------------- CREATING OBJECTS -------------------------->
@@ -331,7 +330,7 @@ console.log("************************************************");
 
 let professor_1 = new Professor("Haytham Idriss", 45, "P-01");
 let professor_2 = new Professor("Jay Johns", 38, "P-05");
-let professor_3 = new Professor("Anshuman Misra", 32,"P-07");
+let professor_3 = new Professor("Anshuman Misra", 32, "P-07");
 
 // introduce and teachCourse
 professor_1.introduce();
@@ -346,10 +345,10 @@ console.log("************************************************");
 let compSciDept = new Department("Computer Science ", [
   professor_1,
   professor_2,
-  professor_3
+  professor_3,
 ]);
 
-//addProfessor , addCourse , showProfessor , showCourse 
+//addProfessor , addCourse , showProfessor , showCourse
 
 compSciDept.showProfessor();
 
@@ -360,17 +359,69 @@ compSciDept.showCourses();
 //     this.professors.push(professor);
 //   }
 
-let professor_4 = new Professor("Zensheng Chen", 38,"P-02");
+let professor_4 = new Professor("Zensheng Chen", 38, "P-02");
 
 compSciDept.addProfessor(professor_4);
 
-
 console.log("************************************************");
 
+// Creating Departments ->
 
+// Creating two depts - Comp science and Psychology
 
+let dept_1 = new Department("Computer Science", [
+  professor_1,
+  professor_2,
+  professor_3,
+  professor_4,
+]);
+
+let professor_5 = new Professor("Anshuman Misra", 33, "P-89");
+
+dept_1.addProfessor(professor_5); // adding a new Professor
+dept_1.showProfessor(); // display all the professor
+
+dept_1.addCourse(machineLearning);
+dept_1.addCourse(deepLearning);
+dept_1.addCourse(operatingSystem);
+
+dept_1.showCourses(); // display all the courses
+
+//Dept - 2
+//Psychology Professors->
+console.log("....Psychology Department --->");
+
+let dept_2 = new Department("Psychology", []);
+
+//Making Professor
+let professor_6 = new Professor("Pushan Verma", 26, "P-11");
+let professor_7 = new Professor("Varun Teja", 38, "P-12");
+
+dept_2.addProfessor(professor_6); // adding professor in dept 2
+dept_2.addProfessor(professor_7); // adding professor in dept 2
+
+dept_2.showProfessor(); // display all the proferssor in Pyschology Dept
+
+//Adding the Course
+let human_psychology = new Course("Human Psychology", "PSC-001");
+let animal_psychology = new Course("Animal Psychology", "PSC-002");
+
+dept_2.addCourse(human_psychology);
+dept_2.addCourse(animal_psychology);
+
+dept_2.showCourses();
+
+console.log("************************************************");
 
 //Creating University ->
 let university_1 = new University("Purdue University");
 
+// Adding Department in the University
+university_1.addDepartmentinUniversity(dept_1);
+university_1.addDepartmentinUniversity(dept_2);
 
+// Adding Professors in the University (Remember - Professor can exist w/o the University also )
+
+university_1.displayUniversityDetails();
+
+// university_1.getUniversityDetails;
