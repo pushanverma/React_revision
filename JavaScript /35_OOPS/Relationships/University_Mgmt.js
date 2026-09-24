@@ -420,7 +420,6 @@ let university_1 = new University("Purdue University");
 university_1.addDepartmentinUniversity(dept_1);
 university_1.addDepartmentinUniversity(dept_2);
 
-// Adding Professors in the University (Remember - Professor can exist w/o the University also )
 
 university_1.displayUniversityDetails();
 
